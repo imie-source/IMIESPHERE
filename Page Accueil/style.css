@@ -14,6 +14,10 @@
 		-moz-box-shadow: 0px 4px 0px 0px rgba(120, 0, 0, 0.75);
 		-webkit-box-shadow: 0px 4px 0px 0px rgba(120, 0, 0, 0.75);
 	}
+	
+	.entete {
+		background:none;
+	}	
 
 	#header {
 		width : 100%;
