@@ -1,0 +1,13 @@
+1: Définition des couleurs
+	- Chercher des couleurs qui pourraient le faire
+	- Les tester sur une page random
+	- Présenter tout ça aux chefs de proj
+
+2: Définition du squelette du site
+	- Quelles pages doit avoir le site
+		Accueil, [a nous de faire]
+		Inscription, [?]
+		Authentification, [?]
+		
+		Faire x version en fonction des couleurs qu'on veut test
+3: 

@@ -1,0 +1,7 @@
+Développer une application web qui permet de créer des pages web dynamiquement en utilisant
+le mécanisme de drag & drop. Techno : ASP.Net / HTML, CSS, Javascript, etc.
+
+
+Contact de l'entreprise pour suivre le projet : Le Niveau - Cédric BINARD
+
+Groupe d'élèves + rôle de chacun : Alexandre LISCIA (CP) Camille PAVIOT Charlotte ROSEL-NAVARRO

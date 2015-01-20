@@ -1,0 +1,7 @@
+Langages web: HTML/CSS/PHP/JS
+- Outils de dév: à définir
+- Fonctionnalités principales : blog/administration
+
+Contact de l'entreprise pour suivre le projet : Céline RONSIN
+
+Groupe d'élèves + rôle de chacun : Mathilde DUVAL (CP) Julien ALIPS

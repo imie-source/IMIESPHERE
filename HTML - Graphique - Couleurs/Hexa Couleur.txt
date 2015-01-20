@@ -1,0 +1,5 @@
+bleu foncé : 115FBD
+l'autre bleu : 03AAD9
+blanc : FFFFFF
+gris clair : A6A6A6
+gris foncé : 333333

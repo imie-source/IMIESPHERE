@@ -1,0 +1,9 @@
+
+Développer la partie front-end, et back-end en C# pour cette dernière  d'un site web
+réalisé pour l'entreprise Leniveau (BTP, Construction). Le site permettra aux clients
+de l'entreprise de laisser des avis et des photos une fois la construction terminée.
+
+
+Contact de l'entreprise pour suivre le projet : Le Niveau - Cédric BINARD
+
+Groupe d'élèves + rôle de chacun : Yonn TRIMOREAU (CP) Charly RIVIÈRE Maxime LÉAU

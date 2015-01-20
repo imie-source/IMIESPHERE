@@ -1,0 +1,8 @@
+
+Développement d'une application mobile sous Androïd pour proposer des citations avec 
+"like" et gestion des votes + proposition de citation en fonction des choix précédents 
+de l'utilisateur
+
+Contact de l'entreprise pour suivre le projet : Non renseigner
+
+Groupe d'élèves + rôle de chacun : Quentin ANDRIEU (CP) Jean MARTELOT

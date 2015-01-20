@@ -1,0 +1,7 @@
+Tchat sécurisé et confidentiel avec timer et création de salon.
+HTML, CSS, Javascript, PHP, requête Ajax, jQuery, BDD MySQL
+
+
+Contact de l'entreprise pour suivre le projet : Perso
+
+Groupe d'élèves + rôle de chacun : Benjamin MILLE (CP) Jules CASSET

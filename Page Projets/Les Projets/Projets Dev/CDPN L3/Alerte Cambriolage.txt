@@ -1,0 +1,8 @@
+Ajouter des fonctionnalités à l'application créée l'année dernière, notamment la visualisation, 
+sur l'application Web, du rendu mobile des notifications,informations et conseils publiés qui 
+seront consultables sur mobile ensuite
+
+
+Contact de l'entreprise pour suivre le projet : Gendarmerie d'Ile & Vilaine
+
+Groupe d'élèves + rôle de chacun : Clarisse LERAT (CP) Kévin GUEGAN Lois RIOU

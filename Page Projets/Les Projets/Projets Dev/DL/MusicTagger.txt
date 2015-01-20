@@ -1,0 +1,8 @@
+Projet de logiciel de recueil d'informations sur les musiques en Java, avec :
+une interface graphique
+une base de données (SQLite, noSQL ou mongoDB)
+des API analysant les tags ID3
+
+Contact de l'entreprise pour suivre le projet : Perso
+
+Groupe d'élèves + rôle de chacun : Manon CARBONNEL (CP) Lionel GUERIN Jérôme AUFFRET

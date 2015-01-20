@@ -1,0 +1,7 @@
+Contrôle d'une voiture télécommandée par le biais d'un serveur web.
+(C,ASM,PHP,HTML,MYSQL,JAVASCRIPT,CSS,LINUX,MICROCONTROLEUR...etc).
+
+
+Contact de l'entreprise pour suivre le projet : Perso
+
+Groupe d'élèves + rôle de chacun : Axel PILICER (CP) Simon ARQUES

@@ -1,0 +1,8 @@
+Site et application Web permettant la mise en relation entre l'école,
+les entreprises et les élèves (actuels et anciens)
+
+
+
+Contact de l'entreprise pour suivre le projet : IMIE Rennes - Florence MORFOISSE
+
+Groupe d'élèves + rôle de chacun : Ewen ROBIN (CP) Mathieu TEMPLIER Florian JARNOIN

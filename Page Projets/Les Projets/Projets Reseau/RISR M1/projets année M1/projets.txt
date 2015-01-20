@@ -1,0 +1,43 @@
+Jonathan
+
+En entreprise, travaille dans la continuité de l’existant, pas de projet spécifique.
+Ne mets pas en œuvre Cisco et DB
+Souhaiterait faire plus de Linux 
+A demandé du Python ( > Serge)
+
+Pour le projet, j’ai proposé à Jonathan de voir avec Kevin pour récupérer la carte de visite de l’ICANN.
+Si Kevin choisit aussi ce projet, ils pourraient bosser à deux
+
+
+__________________________
+
+Kevin
+
+A des perspectives en entreprise, mais doit parler avec son responsable pour concrétiser.
+Vu que sa boite fait du 24/7 ils auront des sujets c’est sur.
+Un projet en entreprise l’arrangerait mieux questions trajets mais Kevin est prêt à basculer sur le projet ICANN si en entreprise ce n’est pas possible.
+
+Kevin a aussi un projet (imprimerie, site avec des pages à tourner) qui aurait besoin d’un développeur en Java, mais ici à Rennes, tous nos développeurs ont déjà un projet. Je vais contacter Aude pour voir si à Nantes ou Angers on aurait un stagiaire sans projet avec compétences Java.
+
+
+
+__________________________
+
+Yohan
+
+En entreprise Yohan met en place l’infrastructure, donc il peut présenter comme projet soit l’ensemble, soit un sous-projet. Il va en parler avec son tuteur la semaine prochaine. 
+
+J’ai suggéré à Yohan qu’il présente l’ensemble et 1 des sous-projets (tout en restant prêt à parler des autres). Yohan est d’accord mais m’a dit qu’il devra attendre pour choisir le sous-projet, que ce soit assez avancé.
+
+__________________________
+
+Stéphanie
+
+Projet au sein de l’entreprise (KPI) déjà défini.
+
+__________________________
+
+Tarik
+Au sein de mon entreprise, je participe à un projet liée à la migration de solution de sauvegarde des données pc et serveur. Pour te faire un recap je suis en gros leur informateur. L'entreprise avec laquelle je suis en relation fait parti du groupe et ont été choisi pour ce projet de migration. J'ai pu participer à deux réunion pour l'instant dans lequel j'ai participer au débat et  fait une formation des solutions de sauvegarde.
+J'ai pu notamment leur renseigné des informations sur le déroulement, les technologies et matériels employés pour nos sauvegardes.
+Au final, j'ai fait du technique (au cours de la réunion) mais aussi de la gestion de projet (réunion, formation, compte rendu, procédure de sauvegarde et de restauration,  renseignement d'information en rapport au sauvegarde = volumétrie, inventaire,...)
