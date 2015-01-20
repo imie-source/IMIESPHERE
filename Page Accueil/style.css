@@ -1,0 +1,80 @@
+	body {
+		margin : 0;
+		background : #119D9D;
+		font-family: 'Lobster', cursive;
+		font-size:50;
+	}
+	
+	h1, h2, h3 {
+		border: 3px solid #D54F58;
+		background-color:#D54F58;
+		color:white;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+		box-shadow: 0px 4px 0px 0px rgba(120, 0, 0, 0.75);
+		-moz-box-shadow: 0px 4px 0px 0px rgba(120, 0, 0, 0.75);
+		-webkit-box-shadow: 0px 4px 0px 0px rgba(120, 0, 0, 0.75);
+	}
+
+	#header {
+		width : 100%;
+		height : 150px;
+		background : #113F59;
+		color:white;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+		box-shadow: 0px 5px 0px 0px #119D9D;
+		-moz-box-shadow: 0px 5px 0px 0px #119D9D;
+		-webkit-box-shadow: 0px 5px 0px 0px #119D9D;		
+		font-size: 50px;
+	}
+
+	#footer {
+		width : 100%;
+		height : 150px;
+		background : #113F59;
+		float : left;
+		box-shadow: inset 0px 5px 0px 0px #119D9D;
+		-moz-box-shadow: inset 0px 5px 0px 0px #119D9D;
+		-webkit-box-shadow: inset 0px 5px 0px 0px #119D9D;
+	}
+
+	#page {
+		margin : 0 auto;
+		width : 80%;
+		height : auto;
+		background : #F3EDD3;
+		overflow : auto;
+		box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+		-moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+		-webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+	}
+	
+	#logo {
+		margin-top:10%;
+	}
+
+	#menugauche{
+		float : left;
+		width : 20%;
+		padding : 5px;
+		background : none;
+		border : none;
+		margin : 5px;
+	}
+
+	#corps{
+		float : left;
+		width : 55%;
+		padding : 15px;
+		background : none;
+		border : none;
+		margin : 5px;
+	}
+
+	#menudroite{
+		float : left;
+		width : 20%;
+		padding : 5px;
+		background : #eeeeee;
+		border : none;
+		margin : 5px;
+	}
