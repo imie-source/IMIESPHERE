@@ -1,0 +1,27 @@
+body{
+color:gray;
+}
+h1{
+background-color:#CFCBF7;
+text-align:center;
+}
+.menu .ulmenu .limenu{
+display:inline-block;
+}
+ul,li,a{
+text-decoration:none;
+list-style:none;
+width:400px;
+}
+#QR{
+text-align:justify;
+width:400px;
+}
+.question{
+font-size:20px;
+color:black;
+}
+.reponse{
+font-size:15px;
+}
+
