@@ -1,5 +1,6 @@
 body {
 	text-align: center;
+	/*background-image: url("../Doc/Image/fond2.jpg");*/
 }
 
 label {
@@ -59,12 +60,12 @@ span {
 }
 
 #nom {
-	padding-right: 95px;
+	padding-right: 150px;
 }
 
 #msg {
 	font-family: Consolas;
-	padding-right: 221px;
+	padding-right: 300px;
 	margin-top: 20px;
 }
 
@@ -73,3 +74,15 @@ span {
 	height: 450px;
 	border-style: ridge;
 }
+
+#email {
+	padding-right: 150px;
+}
+
+#sex {
+	padding-right: 140px;
+}
+
+/*#me {
+	color: black;
+}*/
