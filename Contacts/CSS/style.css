@@ -1,6 +1,8 @@
 body {
+	background-color: black;
+	color: white;
 	text-align: center;
-	/*background-image: url("../Doc/Image/fond2.jpg");*/
+
 }
 
 label {
@@ -25,13 +27,12 @@ span {
 
 .formulaire {
 	text-align: right;
-	margin: auto;
-	margin-bottom: 50px;
 	width: 450px;
-	height: 320px;
+	height: 280px;
 	border-style: solid;
 	border-color: #333;
 	border-radius: 25px;
+	margin-right: 250px;
 }
 
 .field {
@@ -79,10 +80,17 @@ span {
 	padding-right: 150px;
 }
 
-#sex {
-	padding-right: 140px;
+#all {
+	
+
 }
 
-/*#me {
-	color: black;
-}*/
+#cmap {
+
+}
+
+
+#cmap, #formulaire {
+	display: inline-block;
+	vertical-align: middle;
+}

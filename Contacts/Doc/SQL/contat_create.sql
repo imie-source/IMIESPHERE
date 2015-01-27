@@ -11,7 +11,6 @@ USE contact;
 CREATE TABLE Contact(
         id_contact int (11) Auto_increment  NOT NULL ,
         nom        Varchar (50) ,
-        sex        Varchar (25) ,
         mail       Varchar (50) ,
         msg        Longtext ,
         PRIMARY KEY (id_contact )
