@@ -9,24 +9,21 @@
 	 *
 	 * @param $pseudo Pseudo à insérer
 	 * @param $motDePasse Mot de passe
-	 * @param $Email Courriel de l'utilisateur
 	 * @param $profil Id du profil demandé
 	 * @return Code de retour (bien passé, pseudo exisant et mail existant)
 	 */
-	function envoieMessage($nom, $email, $sex, $msg) {
+	function envoieMessage($nom, $email, $msg) {
 
 		// Chargement de la configuration
 		$dbConf = chargeConfiguration();
 		// Connexion à la base de données
 		$dbLink = cnxBDD($dbConf);
 
-		$sql = "INSERT INTO Contact (nom, sex, mail, msg) VALUES (:nom, :sex, :mail, :msg);";
+		$sql = "INSERT INTO Contact (nom, mail, msg) VALUES (:nom, :mail, :msg);";
 
 		$req = $dbLink->prepare($sql);
 		// J'associe à ma requête le contenu de la variable $pseudo
 		$req -> bindParam(":nom", $nom);
-		// J'associe à ma requête le contenu de la variable $password
-		$req -> bindParam(":sex", $sex);
 		// J'associe à ma requête le contenu de la variable $Email
 		$req -> bindParam(":mail", $mail);
 		// J'associe à ma requête le contenu de la variable $profil
@@ -51,7 +48,7 @@
 		return ENVOIE_OK;
 	}
 	
-	envoieMessage($_POST["nom"], $_POST["emailaddress"], $_POST["sex"], $_POST["msg"]);
+	envoieMessage($_POST["nom"], $_POST["emailaddress"], $_POST["msg"]);
 
 
 ?>
