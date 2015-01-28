@@ -1,0 +1,89 @@
+body {
+	text-align: center;
+	background-color: black;
+	color: white;
+	}
+
+label {
+	font-family: Consolas;
+	padding-right: 70px;
+}
+
+span {
+	font-family: Consolas;
+}
+
+.titre {
+	font-family: Consolas;
+	text-align: center;
+}
+
+.form {
+	padding-right: 15px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.formulaire {
+	text-align: right;
+	margin: auto;
+	margin-bottom: 50px;
+	width: 450px;
+	height: 320px;
+	border-style: solid;
+	border-color: #333;
+	border-radius: 25px;
+}
+
+.field {
+	font-family: Consolas;
+	margin-bottom: 7px;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #333;
+	text-indent: 2px;
+}
+
+.bouton {
+	margin-top: 8px;
+	font-family: Consolas;
+	width: 100px;
+	height: 25px;
+	border-radius: 5px;
+	border-style: solid;
+	background-color: #333;
+	border-color: #333;
+	color: white;
+}
+
+#text {
+	margin-left: 222px;
+}
+
+#nom {
+	padding-right: 150px;
+}
+
+#msg {
+	font-family: Consolas;
+	padding-right: 300px;
+	margin-top: 20px;
+}
+
+#map {
+	width: 600px;
+	height: 450px;
+	border-style: ridge;
+}
+
+#email {
+	padding-right: 150px;
+}
+
+#sex {
+	padding-right: 140px;
+}
+
+/*#me {
+	color: black;
+}*/
