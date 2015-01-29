@@ -10,9 +10,10 @@ USE contact;
 
 CREATE TABLE Contact(
         id_contact int (11) Auto_increment  NOT NULL ,
-        nom        Varchar (50) ,
-        mail       Varchar (50) ,
-        msg        Longtext ,
+        nom        Varchar (50) NOT NULL,
+        mail       Varchar (50) NOT NULL,
+        objet	   Varchar (50) NOT NULL,
+        msg        Longtext NOT NULL,
         PRIMARY KEY (id_contact )
 )ENGINE=InnoDB;
 
