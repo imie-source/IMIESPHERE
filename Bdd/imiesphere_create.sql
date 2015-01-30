@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS imisphere;
+DROP DATABASE IF EXISTS imiesphere;
 
-CREATE DATABASE imisphere
+CREATE DATABASE imiesphere
         DEFAULT CHARACTER SET utf8
         DEFAULT COLLATE utf8_general_ci;
 
-USE imisphere;
+USE imiesphere;
 
 
 CREATE TABLE Utilisateur(
@@ -128,4 +128,4 @@ ALTER TABLE categorie_forum ADD CONSTRAINT FK_categorie_forum_id_theme FOREIGN K
 ALTER TABLE categorie_forum ADD CONSTRAINT FK_categorie_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
 ALTER TABLE theme_forum ADD CONSTRAINT FK_theme_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
 
-GRANT ALL PRIVILEGES ON imisphere.* TO 'admin'@'localhost'  IDENTIFIED BY 'administrator';
+GRANT ALL PRIVILEGES ON imiesphere.* TO 'admin'@'localhost'  IDENTIFIED BY 'administrator';
