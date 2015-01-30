@@ -1,117 +1,88 @@
 <?php 
-
-	define('ENREG_OK', 1);
-	define('ENVOIE_OK', 2);
-	
 	
 	require ("bdd_inc.php");
 
 	/**
-	 * Inscrit le nouvel utilisateur dans la base
-	 *
-	 * @param $pseudo Pseudo à insérer
-	 * @param $motDePasse Mot de passe
-	 * @param $profil Id du profil demandé
-	 * @return Code de retour (bien passé, pseudo exisant et mail existant)
+	 * Fonction qui envoie un mail à la personne postant son message (accusé de reception)
 	 */
-	function envoieMessage($nom, $email, $objet, $msg) {
-
-		// Chargement de la configuration
-		$dbConf = chargeConfiguration();
-		// Connexion à la base de données
-		$dbLink = cnxBDD($dbConf);
-
-		$sql = "INSERT INTO Contact (nom, mail, objet, msg) VALUES (:nom, :mail, :objet, :msg);";
-
-		$req = $dbLink->prepare($sql);
-		// J'associe à ma requête le contenu de la variable $pseudo
-		$req -> bindParam(":nom", $nom);
-		// J'associe à ma requête le contenu de la variable $Email
-		$req -> bindParam(":mail", $email);
-		// J'associe à ma requête le contenu de la variable $Email
-		$req -> bindParam(":objet", $objet);
-		// J'associe à ma requête le contenu de la variable $profil
-		$req -> bindParam(":msg", $msg);
-		
-		try {
-
-			// J'exécute ma requête
-			$req -> execute();
-		}
-
-		catch (PDOException $e) {
-			
-			// En cas d'erreur, je récupère le code
-			die($e -> getCode() . " / " . $e -> getMessage());
-		}
-
-		// On libère le résultat de la requête
-		$req = NULL;
-		// On se déconnecte de la base
-		$dbLink = NULL;
-		return ENREG_OK;
-	}
-
-	function accuseRecep() {
+	/*function accuseRecep() {
 
 		$subject = "IMIE vous remercie";
 
 		$msg = "Bonjour, \nVotre message à bien été envoyé à l'association IMIESPHERE\n. Elle vous répondra dans les plus bref délais\n Cordialement l'équipe de l'IMIESPHERE";
 
 		mail($_POST["emailaddress"], $subject, $msg);
-	}
+	}*/
 
+	/**
+	 * Fonction qui check si le mail est valide
+	 *
+	 * @return Vrai le mail est correct, faux si le mail n'est pas correct
+	 */
 	function check_mail($email){
 
 		// Utilisation expression régulière pour vérifier le mail
  		return(preg_match("/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/", $email));
 	}
 
-	function getMail() {
+	function envoieMail() {
+		
+		// Si le mail est correct
+		if (check_mail($_POST["emailaddress"])) {
 
-		// Chargement de la configuration
-		$dbConf = chargeConfiguration();
-		// Connexion à la base de données
-		$dbLink = cnxBDD($dbConf);
+			// Déclaration de l'adresse de destination.
+			$mail = 'thibaud.carie@gmail.com';
 
-		$sql = "SELECT mail_imie FROM info;";
+			// On filtre les serveurs qui rencontrent des bogues.
+			if (!preg_match("/^[a-z0-9._-]+@(hotmail|live|msn)\.[a-z]{2,4}$/", $mail)) {
 
-		$req = $dbLink->prepare($sql);
-		// J'associe à ma requête le contenu de la variable $pseudo
-
-		try {
-
-			// J'exécute ma requête
-			$req -> execute();
-
-			if ($data = $req -> fetch(PDO::FETCH_ASSOC)) {
-
-			return $data["mail_imie"];
-
+				$passage_ligne = "\r\n";
 			}
-				
-				
-		}
 
-		catch (PDOException $e) {
+			else {
+
+				$passage_ligne = "\n";
+			}
+
+			//Déclaration du message au format HTML.
+			$message_html = $_POST["msg"];
+			 
+			//Création de la boundary
+			$boundary = "-----=".md5(rand());
+			 
+			//Définition du sujet.
+			$sujet = $_POST["objet"];
+
+			$nom = $_POST["nom"];
+
+			$mailExp = $_POST["emailaddress"];
+			 
+			//Création du header de l'e-mail.
+			$header = "From: \"$nom\"$mailExp".$passage_ligne;
+			$header.= "Reply-to: \"$nom\"$mailExp".$passage_ligne;
+			$header.= "MIME-Version: 1.0".$passage_ligne;
+			$header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$boundary\"".$passage_ligne;
+			 
+			//Création du message.
+			$message = $passage_ligne."--".$boundary.$passage_ligne;
+
+			//Ajout du message au format HTML
+			$message.= "Content-Type: text/html; charset=\"ISO-8859-1\"".$passage_ligne;
+			$message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+			$message.= $passage_ligne.$message_html.$passage_ligne;
+
+			$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+			$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+			 
+			//Envoi de l'e-mail.
+
 			
-			// En cas d'erreur, je récupère le code
-			die($e -> getCode() . " / " . $e -> getMessage());
+			mail($mail,$sujet,$message,$header);
+
+			// On envoie un accusé de réception
+			//accuseRecep();
 		}
-
-		// On libère le résultat de la requête
-		$req = NULL;
-		// On se déconnecte de la base
-		$dbLink = NULL;
 	}
 
-	if (check_mail($_POST["emailaddress"])) {
-
-		envoieMessage($_POST["nom"], $_POST["emailaddress"], $_POST["objet"], $_POST["msg"]);
-
-		accuseRecep();
-
-		mail(getMail(), $_POST["objet"], $_POST["msg"]);
-	}
-	
+	envoieMail();
 ?>
