@@ -1,18 +1,21 @@
 <?php 
+
+	define('ENVOIE_OK', 1);
 	
 	require ("bdd_inc.php");
 
 	/**
+ 	 *
 	 * Fonction qui envoie un mail à la personne postant son message (accusé de reception)
 	 */
-	/*function accuseRecep() {
+	function accuseRecep() {
 
 		$subject = "IMIE vous remercie";
 
 		$msg = "Bonjour, \nVotre message à bien été envoyé à l'association IMIESPHERE\n. Elle vous répondra dans les plus bref délais\n Cordialement l'équipe de l'IMIESPHERE";
 
 		mail($_POST["emailaddress"], $subject, $msg);
-	}*/
+	}
 
 	/**
 	 * Fonction qui check si le mail est valide
@@ -25,6 +28,10 @@
  		return(preg_match("/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/", $email));
 	}
 
+	/**
+	 * Fonction qui envoie le message à l'association
+	 *
+	 */
 	function envoieMail() {
 		
 		// Si le mail est correct
@@ -55,6 +62,8 @@
 
 			$nom = $_POST["nom"];
 
+			$tel = $_POST["tel"];
+
 			$mailExp = $_POST["emailaddress"];
 			 
 			//Création du header de l'e-mail.
@@ -69,7 +78,7 @@
 			//Ajout du message au format HTML
 			$message.= "Content-Type: text/html; charset=\"ISO-8859-1\"".$passage_ligne;
 			$message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
-			$message.= $passage_ligne.$message_html.$passage_ligne;
+			$message.= $passage_ligne.$tel.$passage_ligne.$message_html.$passage_ligne;
 
 			$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
 			$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
@@ -85,4 +94,55 @@
 	}
 
 	envoieMail();
+
+	/**
+	 * Enregistre le message dans la BDD
+	 *
+	 * @param $nom Nom à insérer
+	 * @param $tel Téléphone à insérer
+	 * @param $email mail à insérer
+	 * @param $objet objet du mail à insérer
+	 * @param $msg Message à insérer
+	 * @return
+	 */
+	function envoieMessage($nom, $tel, $email, $objet, $msg) {
+
+		// Chargement de la configuration
+		$dbConf = chargeConfiguration();
+		// Connexion à la base de données
+		$dbLink = cnxBDD($dbConf);
+
+		$sql = "INSERT INTO Contact (nom, mail, tel, objet, msg) VALUES (:nom, :mail, :tel, :objet, :msg);";
+
+		$req = $dbLink->prepare($sql);
+		// J'associe à ma requête le contenu de la variable $nom
+		$req -> bindParam(":nom", $nom);
+		// J'associe à ma requête le contenu de la variable $mail
+		$req -> bindParam(":mail", $mail);
+		// J'associe à ma requête le contenu de la variable $tel
+		$req -> bindParam(":nom", $tel);
+		// J'associe à ma requête le contenu de la variable $objet
+		$req -> bindParam(":nom", $objet);
+		// J'associe à ma requête le contenu de la variable $msg
+		$req -> bindParam(":msg", $msg);
+		
+		try {
+
+			// J'exécute ma requête
+			$req -> execute();
+		}
+
+		catch (PDOException $e) {
+			
+			// En cas d'erreur, je récupère le code
+			die($e -> getCode() . " / " . $e -> getMessage());
+		}
+
+		// On libère le résultat de la requête
+		$req = NULL;
+		// On se déconnecte de la base
+		$dbLink = NULL;
+	}
+	
+	envoieMessage($_POST["nom"], $_POST["emailaddress"], $_POST["tel"], $_POST["objet"], $_POST["msg"]);
 ?>

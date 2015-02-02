@@ -14,10 +14,15 @@ span {
 	font-family: Consolas;
 }
 
+input {
+	outline: none;
+}
+
 .titre {
 	font-family: Consolas;
 	text-align: center;
 }
+
 
 #subject {
 	padding-right: 130px;
@@ -35,12 +40,14 @@ span {
 
 .formulaire {
 	text-align: right;
+	margin: auto;
+	margin-bottom: 50px;
 	width: 450px;
-	height: 290px;
+	height: 320px;
 	border-style: solid;
 	border-color: #333;
 	border-radius: 25px;
-	margin-right: 250px;
+	margin-right: 75px;
 }
 
 .field {
@@ -66,6 +73,11 @@ span {
 
 #text {
 	margin-left: 222px;
+	outline: none;
+}
+
+#phone {
+	padding-right: 150px;
 }
 
 #nom {
@@ -75,6 +87,7 @@ span {
 #msg {
 	font-family: Consolas;
 	padding-right: 310px;
+	padding-right: 300px;
 	margin-top: 20px;
 }
 

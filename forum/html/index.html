@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>.: iMiESPHERE :.</title>
+		<link rel="stylesheet" href="../css/style.css">
+		<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="../js/forum.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div id="page">
+		 
+		<div id="header">
+			
+				<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-family: 'calibri'; font-weight:bold;">IMIE</span>sphere...
+			
+		</div>
+		 
+		<div id="menugauche">
+			<h3>NOTRE ADRESSE</h3>
+				<p>IMIE Rennes<br>
+				Rue Pierre de Maupertuis<br>
+				Campus de Ker Lann<br>
+				Immeuble Alliance<br>
+				35170 Bruz</p>
+				<p>Téléphone : 02 23 44 69 00<br>
+				Mail : contact-rennes@imie.fr</p>
+				
+			<h3>CONNEXION</h3>
+				<div><?= $message ?></div>
+				<p><input type="text" placeholder="Votre Pseudo" name="pseudo"></p>
+				<p><input type="password" placeholder="Votre Mot De Passe" name="mdp"></p>
+				<input type="submit" value="Valider" name="valider" title="Se connecter au tchat !">
+				
+			<h3>INSCRIPTION</h3>
+				<p><input type="email" placeholder="Votre E-mail" name="email"></p>
+				<p><input type="text" placeholder="Votre Pseudo" name="pseudo"></p>
+				<p><input type="password" placeholder="Votre Mot De Passe" name="mdp"></p>
+				<p><input type="password" placeholder="Confirmez Votre Mot De Passe" name="mdp1"></p>
+				<input type="submit" value="Valider" name="valider" title="Se connecter au tchat !">
+				
+		</div>
+		
+		<div id="corps">
+		<h1>Forum</h1>
+
+		<div id="content"></div>
+		 
+		</div>
+		
+		<div id="menudroite">
+			<h3>NOTRE ADRESSE</h3>
+				<p>IMIE Rennes<br>
+				Rue Pierre de Maupertuis<br>
+				Campus de Ker Lann<br>
+				Immeuble Alliance<br>
+				35170 Bruz</p>
+				<p>Téléphone : 02 23 44 69 00<br>
+				Mail : contact-rennes@imie.fr</p>
+				
+			<h3>UTILISATEUR</h3>
+				<p><?= $_SESSION["pseudo"] ?></p>
+				
+				
+			<h3>INSCRIPTION</h3>
+				<p><input type="email" placeholder="Votre E-mail" name="email2"></p>
+				<p><input type="text" placeholder="Votre Pseudo" name="pseudo2"></p>
+				<p><input type="password" placeholder="Votre Mot De Passe" name="mdp2"></p>
+				<p><input type="password" placeholder="Confirmez Votre Mot De Passe" name="mdp12"></p>
+				<input type="submit" value="Valider" name="valider" title="Se connecter au tchat !">
+				
+		</div>
+		
+
+		<script type="text/javascript">
+			afficheTheme();
+		</script>
+	</body>
+</html>
