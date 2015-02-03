@@ -10,11 +10,56 @@
 	 */
 	function accuseRecep() {
 
-		$subject = "IMIE vous remercie";
+		if (check_mail($_POST["emailaddress"])) {
 
-		$msg = "Bonjour, \nVotre message à bien été envoyé à l'association IMIESPHERE\n. Elle vous répondra dans les plus bref délais\n Cordialement l'équipe de l'IMIESPHERE";
+			// Déclaration de l'adresse de destination.
+			$mail = $_POST["emailaddress"];
 
-		mail($_POST["emailaddress"], $subject, $msg);
+			// On filtre les serveurs qui rencontrent des bogues.
+			if (!preg_match("/^[a-z0-9._-]+@(hotmail|live|msn)\.[a-z]{2,4}$/", $mail)) {
+
+				$passage_ligne = "\r\n";
+			}
+
+			else {
+
+				$passage_ligne = "\n";
+			}
+
+			//Déclaration du message au format HTML.
+			$message_html = "Bonjour, \nVotre message à bien été envoyé à l'association IMIESPHERE\n. Elle vous répondra dans les plus bref délais\n Cordialement l'équipe de l'IMIESPHERE";
+			 
+			//Création de la boundary
+			$boundary = "-----=".md5(rand());
+			 
+			//Définition du sujet.
+			$sujet = "Accusé de reception";
+
+			$nom = $_POST["nom"];
+
+			$mailExp = $_POST["emailaddress"];
+			 
+			//Création du header de l'e-mail.
+			$header = "From: \"$nom\"$mailExp".$passage_ligne;
+			$header.= "Reply-to: \"$nom\"$mailExp".$passage_ligne;
+			$header.= "MIME-Version: 1.0".$passage_ligne;
+			$header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$boundary\"".$passage_ligne;
+			 
+			//Création du message.
+			$message = $passage_ligne."--".$boundary.$passage_ligne;
+
+			//Ajout du message au format HTML
+			$message.= "Content-Type: text/html; charset=\"ISO-8859-1\"".$passage_ligne;
+			$message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+			$message.= $passage_ligne.$message_html.$passage_ligne;
+
+			$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+			$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+			 
+			//Envoi de l'e-mail.
+			mail($mail,$sujet,$message,$header);
+
+		}
 	}
 
 	/**
@@ -84,16 +129,12 @@
 			$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
 			 
 			//Envoi de l'e-mail.
-
-			
 			mail($mail,$sujet,$message,$header);
 
 			// On envoie un accusé de réception
-			//accuseRecep();
+			accuseRecep();
 		}
 	}
-
-	envoieMail();
 
 	/**
 	 * Enregistre le message dans la BDD
@@ -103,7 +144,6 @@
 	 * @param $email mail à insérer
 	 * @param $objet objet du mail à insérer
 	 * @param $msg Message à insérer
-	 * @return
 	 */
 	function envoieMessage($nom, $tel, $email, $objet, $msg) {
 
@@ -118,11 +158,11 @@
 		// J'associe à ma requête le contenu de la variable $nom
 		$req -> bindParam(":nom", $nom);
 		// J'associe à ma requête le contenu de la variable $mail
-		$req -> bindParam(":mail", $mail);
+		$req -> bindParam(":mail", $email);
 		// J'associe à ma requête le contenu de la variable $tel
-		$req -> bindParam(":nom", $tel);
+		$req -> bindParam(":tel", $tel);
 		// J'associe à ma requête le contenu de la variable $objet
-		$req -> bindParam(":nom", $objet);
+		$req -> bindParam(":objet", $objet);
 		// J'associe à ma requête le contenu de la variable $msg
 		$req -> bindParam(":msg", $msg);
 		
@@ -144,5 +184,7 @@
 		$dbLink = NULL;
 	}
 	
-	envoieMessage($_POST["nom"], $_POST["emailaddress"], $_POST["tel"], $_POST["objet"], $_POST["msg"]);
+	envoieMessage($_POST["nom"], $_POST["tel"], $_POST["emailaddress"], $_POST["objet"], $_POST["msg"]);
+
+	envoieMail();
 ?>
