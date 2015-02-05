@@ -1,6 +1,7 @@
 <?php
 
 	
+
 	define("AUTH_OK", 2);
 	define("AUTH_MDP_KO", 1);
 	define("AUTH_PSEUDO_KO", 0);

@@ -34,6 +34,7 @@
 							
 						<h3>CONNEXION</h3>
 						<form class="formulaire" method="POST" action ="<?= $self ?>">
+							<input type="hidden" value="Connection" name='Connection'>
 							<p><input type="text" placeholder="Votre Pseudo" name="pseudo"></p>
 							<p><input type="password" placeholder="Votre Mot De Passe" name="mdp"></p>
 							<input type="submit" value="Valider" name="valider" title="Se connecter au tchat !">
@@ -49,11 +50,13 @@
 						
 						
 					<h3>INSCRIPTION</h3>
+				<form class="formulaire1" method="POST" action="<?= $self ?>">
 					<p><input type="email" placeholder="Votre E-mail" name="email"></p>
 					<p><input type="text" placeholder="Votre Pseudo" name="pseudo"></p>
 					<p><input type="password" placeholder="Votre Mot De Passe" name="mdp"></p>
 					<p><input type="password" placeholder="Confirmation Mot De Passe" name="mdp1"></p>
 					<input type="submit" value="Valider" name="valider" title="Se connecter au tchat !">
+				</form>
 					</div> 
 
 
