@@ -17,6 +17,7 @@ jQuery(function(){
     jQuery(document).keydown(Kpress);
 });
 function kExec(){
+   alert("TELEPORTATIOOOON !");
    window.location = "../html/accueil2.html";
 }
 
