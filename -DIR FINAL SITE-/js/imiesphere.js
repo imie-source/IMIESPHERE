@@ -17,5 +17,17 @@ jQuery(function(){
     jQuery(document).keydown(Kpress);
 });
 function kExec(){
-   window.location = "../html/acctest2.html";
+   window.location = "../html/accueil2.html";
 }
+
+/*- Fonction de gestion d'onglet de la page projet -*/
+function change_onglet(name) {
+    document.getElementById('onglet_'+anc_onglet).className = 'onglet';
+    document.getElementById('onglet_'+name).className = 'onglet';
+    document.getElementById('contenu_onglet_'+anc_onglet).style.display = 'none';
+    document.getElementById('contenu_onglet_'+name).style.display = 'block';
+    anc_onglet = name;
+}
+
+var anc_onglet = 'itstart';
+change_onglet(anc_onglet);
