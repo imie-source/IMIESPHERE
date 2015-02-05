@@ -1,0 +1,3 @@
+RewriteEngine on
+
+RewriteRule ^([a-zA-Z-_]*)/?([a-zA-Z-_]*)?/?([a-zA-Z0-9/_-]*)$ index.php?controller=$1&action=$2&params=$3

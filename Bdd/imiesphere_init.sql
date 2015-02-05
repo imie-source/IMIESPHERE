@@ -12,8 +12,7 @@ INSERT INTO profil (id_profil, libelle) VALUES (1, 'Administrateur'),
 												(3, 'Utilisateur'),
 												(10, 'Visiteur');
 
-INSERT INTO Utilisateur (pseudo, nom_utilisateur, prenom_utilisateur, password, email, id_profil) VALUES 
-															('pierre', 'bourven', 'pierre', MD5('pierre'), 'pierre@imie-rennes.fr', 3 ),
+INSERT INTO utilisateur (pseudo, nom_utilisateur, prenom_utilisateur, password, email, id_profil) VALUES 
 															('serge', 'coude', 'serge', MD5('coucou'), 'serge@imie.fr', 1),
 															('denis', 'le gourierec', 'denis', MD5('toto'), 'denis@imie.fr', 3),
 															('celia', 'renouf', 'celia', MD5('titi'), 'celia@imie.fr', 3),
