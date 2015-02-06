@@ -627,3 +627,8 @@ table tbody tr.light{
 table tbody tr.dark{
 	color:#666666; 
 	background-color:#E8E8E8;}
+
+#use{
+	margin-top: 25px;
+	float : right;
+}

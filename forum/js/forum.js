@@ -125,21 +125,26 @@ function afficheMsg(id_topic) {
 						var msgDate = tabMsg[3];
 						
 						//console.log("test");
+
+						if(i%2){
 						ctn += "<table>";
-       					ctn +=			"<thead>";
-          				ctn +=				"<tr>";
-            			ctn +=					"<th>" + msgId + "</th>";
-        				ctn +=				"</tr>";
-        				ctn +=			"</thead>";
-        				ctn +=			"<tbody>";
-          				ctn +=				"<tr class='light'>";
-            			ctn +=					"<td>" + msgLib + "</td>";
-          				ctn +=				"</tr>";
-        				ctn +=				"<tr class='dark'>";
-            			ctn +=				"<td>" + msgUser + " a publié le " + msgDate + "</td>";
-       					ctn +=			    "</tr>";
-		      			ctn +=			"</tbody>";
+        				ctn +=		"<tbody>";
+          				ctn +=			"<tr class='light'>";
+            			ctn +=				"<td>" + msgLib;
+            			ctn +=					"<div id='use'>" + msgUser + " a publié le " + msgDate + "</div>";
+          				ctn +=			"</tr>";
+          				ctn +=		"</tbody>";
       					ctn += "</table>";
+      					}else{
+      					ctn += "<table>";
+        				ctn +=		"<tbody>";
+        				ctn +=			"<tr class='dark'>";
+            			ctn +=				"<td>" + msgLib;
+            			ctn +=					 "<div id='use'>" + msgUser + " a publié le " + msgDate + "</div>";
+       					ctn +=			  "</tr>";
+		      			ctn +=		"</tbody>";
+      					ctn += "</table>";
+      					}
 					}
 										
 				}
