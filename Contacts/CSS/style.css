@@ -1,13 +1,12 @@
 body {
-	background-color: black;
-	color: white;
+	background-image: url("../Doc/Image/background.png");
 	text-align: center;
-
 }
 
 label {
 	font-family: Consolas;
-	padding-right: 70px;
+	padding-right: 15px;
+	color: black;
 }
 
 span {
@@ -21,33 +20,26 @@ input {
 .titre {
 	font-family: Consolas;
 	text-align: center;
-}
-
-
-#subject {
-	padding-right: 130px;
-}
-
-#objet {
-	width: 170px;
+	color : black;
 }
 
 .form {
 	padding-right: 15px;
 	margin-top: 10px;
 	margin-left: 10px;
+	text-align: right;
 }
 
 .formulaire {
-	text-align: right;
 	margin: auto;
 	margin-bottom: 50px;
-	width: 450px;
-	height: 320px;
+	width: 400px;
+	height: 360px;
 	border-style: solid;
-	border-color: #333;
-	border-radius: 25px;
+	border-color: #777;
+	border-radius: 15px;
 	margin-right: 75px;
+	background-image: url("../Doc/Image/fond.png");
 }
 
 .field {
@@ -72,23 +64,21 @@ input {
 }
 
 #text {
-	margin-left: 222px;
 	outline: none;
 }
 
-#phone {
-	padding-right: 150px;
+#objet {
+	width: 170px;
+	margin-bottom: 15px;
 }
 
-#nom {
-	padding-right: 150px;
+#big {
+	color: #999;
 }
 
 #msg {
 	font-family: Consolas;
-	padding-right: 310px;
-	padding-right: 300px;
-	margin-top: 20px;
+	padding-right: 225px;
 }
 
 #map {
@@ -97,11 +87,33 @@ input {
 	border-style: ridge;
 }
 
-#email {
-	padding-right: 150px;
-}
-
 #cmap, #formulaire {
 	display: inline-block;
 	vertical-align: middle;
+}
+
+#send_ok {
+	border: solid #777;
+	border-radius: 10px;
+	width: 500px;
+	background-image: url("../Doc/Image/fond.png");
+	color: #444;
+	display: inline-block;
+	margin-top: 250px;
+}
+
+#infos {
+	border-style: solid;
+	border-color: #777;
+	border-radius: 10px;
+	float: right;
+	width: 250px;
+	height: 275px;
+	background-image: url("../Doc/Image/fond.png");
+}
+
+#info {
+	font-family: Consolas;
+	padding-left: 15px;
+	text-align: left;
 }
