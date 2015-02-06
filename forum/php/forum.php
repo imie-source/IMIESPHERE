@@ -51,8 +51,8 @@ function getTopic($id_categorie){
 	$dbConf = chargeConfiguration();
 	$pdo = cnxBDD($dbConf);
 
-	$req = "SELECT libelle_topic, id_topic, id_categorie, crea_topic, id_utilisateur ";
-	$req .= "FROM topic_forum WHERE id_categorie = :id_categorie";
+	$req = "SELECT libelle_topic, id_topic, pseudo, id_categorie, crea_topic, id_utilisateur ";
+	$req .= "FROM topic_forum NATURAL JOIN utilisateur WHERE id_categorie = :id_categorie";
 
 	$pdoStmt = $pdo->prepare($req);
 	$pdoStmt->bindParam(':id_categorie', $id_categorie);
@@ -74,8 +74,8 @@ function getMsg($id_topic){
 	$dbConf = chargeConfiguration();
 	$pdo = cnxBDD($dbConf);
 
-	$req = "SELECT content_msg_forum, id_msg_forum, id_topic, id_utilisateur, date_msg_forum ";
-	$req .= "FROM message_forum WHERE id_topic = :id_topic";
+	$req = "SELECT content_msg_forum, id_msg_forum, id_topic, pseudo, id_utilisateur, date_msg_forum ";
+	$req .= "FROM message_forum NATURAL JOIN utilisateur WHERE id_topic = :id_topic";
 
 	$pdoStmt = $pdo->prepare($req);
 	$pdoStmt->bindParam(':id_topic', $id_topic);
@@ -98,7 +98,7 @@ if ($action == "listeTheme") {
 	$liste = getThemes();
 	$res = "";
 	foreach($liste as $theme) {
-		$res .= $theme["libelle_theme"] . ";" . $theme["id_theme"]  . "\n";
+		$res .= ucfirst($theme["libelle_theme"]) . ";" . $theme["id_theme"]  . "\n";
 	}	
 	die($res);
 }else if($action == "listeCat"){
@@ -112,14 +112,14 @@ if ($action == "listeTheme") {
 	$liste = getTopic($_GET["id_categorie"]);
 	$res = "";
 	foreach($liste as $topic) {
-		$res .= $topic["libelle_topic"] . ";" . $topic["id_topic"] . ";" . $topic["id_utilisateur"] . ";" . $topic["crea_topic"] ."\n";
+		$res .= $topic["libelle_topic"] . ";" . $topic["id_topic"] . ";" . ucfirst($topic["pseudo"]) . ";" . $topic["crea_topic"] ."\n";
 	}	
 	die($res);
 }else if($action == "listeMsg"){
 	$liste = getMsg($_GET["id_topic"]);
 	$res = "";
 	foreach($liste as $msg) {
-		$res .= $msg["content_msg_forum"] . ";" . $msg["id_msg_forum"] . ";" . $msg["id_utilisateur"] . ";" . $msg["date_msg_forum"] ."\n";
+		$res .= $msg["content_msg_forum"] . ";" . $msg["id_msg_forum"] . ";" . ucfirst($msg["pseudo"]) . ";" . $msg["date_msg_forum"] ."\n";
 	}	
 	die($res);
 }else{

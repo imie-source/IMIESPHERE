@@ -124,7 +124,7 @@ function afficheMsg(id_topic) {
 						var msgUser = tabMsg[2];
 						var msgDate = tabMsg[3];
 						
-						//console.log("test");
+						console.log(msgUser);
 
 						if(i%2){
 						ctn += "<table>";
