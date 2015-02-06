@@ -20,8 +20,10 @@ switch($action) {
 			break;
 		case 'listeTheme':
 		case 'listeCat':
+		case 'listeTopic':
+		case 'listeMsg' :
 		case 'ftheme' :
-			include(__DIR__ . "/forum.php");
+		default :	include(__DIR__ . "/forum.php");
 			break;
 
 }
