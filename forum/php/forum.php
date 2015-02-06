@@ -112,14 +112,14 @@ if ($action == "listeTheme") {
 	$liste = getTopic($_GET["id_categorie"]);
 	$res = "";
 	foreach($liste as $topic) {
-		$res .= $topic["libelle_topic"] . ";" . $topic["id_topic"] ."\n"; // ";" . $topic["id_utilisateur"] . $topic["crea_topic"] ."\n";
+		$res .= $topic["libelle_topic"] . ";" . $topic["id_topic"] . ";" . $topic["id_utilisateur"] . ";" . $topic["crea_topic"] ."\n";
 	}	
 	die($res);
 }else if($action == "listeMsg"){
 	$liste = getMsg($_GET["id_topic"]);
 	$res = "";
 	foreach($liste as $msg) {
-		$res .= $msg["content_msg_forum"] . ";" . $msg["id_msg_forum"] . "\n";// ";" . $msg["id_utilisateur"] . $msg["date_msg_forum"] ."\n";
+		$res .= $msg["content_msg_forum"] . ";" . $msg["id_msg_forum"] . ";" . $msg["id_utilisateur"] . ";" . $msg["date_msg_forum"] ."\n";
 	}	
 	die($res);
 }else{

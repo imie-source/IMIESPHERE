@@ -92,10 +92,10 @@ function afficheTopic(id_categorie) {
             			ctn +=					"<td><div class='btn' onclick=\"afficheMsg('" + topId + "');\">" + topLib + "</div></td>";
           				ctn +=				"</tr>";
         				ctn +=				"<tr class='dark'>";
-            			ctn +=				"<td>" + topUserID + "a publié le " + topDate + "</td>";
+            			ctn +=				"<td>" + topUserID + " a publié le " + topDate + "</td>";
        					ctn +=			    "</tr>";
 		      			ctn +=			"</tbody>";
-      					ctn +=		"</table>";
+      					ctn += "</table>";
 					}
 										
 				}
@@ -136,10 +136,10 @@ function afficheMsg(id_topic) {
             			ctn +=					"<td>" + msgLib + "</td>";
           				ctn +=				"</tr>";
         				ctn +=				"<tr class='dark'>";
-            			ctn +=				"<td>" + msgUser + "a publié le " + msgDate + "</td>";
+            			ctn +=				"<td>" + msgUser + " a publié le " + msgDate + "</td>";
        					ctn +=			    "</tr>";
 		      			ctn +=			"</tbody>";
-      					ctn +=		"</table>";
+      					ctn += "</table>";
 					}
 										
 				}
