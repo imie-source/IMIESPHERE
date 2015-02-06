@@ -1,0 +1,393 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+
+	body {
+	margin : 0;
+
+	background: rgb(59,103,158); /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  rgba(59,103,158,1) 0%, rgba(43,136,217,1) 50%, rgba(43,136,217,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(59,103,158,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+	background: linear-gradient(135deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	font-family: 'Roboto';
+	color:black;
+	background-attachment:fixed;
+}
+
+h1, h2, h3 {
+	font-family: 'Century Gothic', cursive;
+	font-weight: normal;
+
+	border: 3px solid #5C5C58;
+	background-color:#5C5C58;
+	color:white;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 4px 0px 0px #41413F;
+	-moz-box-shadow: 0px 4px 0px 0px #41413F;
+	-webkit-box-shadow: 0px 4px 0px 0px #41413F;
+	margin-top: 0;		
+}
+
+#mainProjTitle {
+	margin: 50px 300px 40px 300px;
+}
+
+#header1 {
+	width : 1024px;
+	height : 130px;
+	margin : 0 auto 0 auto;
+	
+	color:#EDEDED;
+	font-size: 50px;
+}
+
+/*- Style pour le titre du header -*/
+#headerTitle {
+	font-family: 'calibri';
+	font-weight: bold;
+	color:#EDEDED;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+/*- Style permettant de formater la forme lien du titre -*/
+#headerTitle a:link, #headerTitle a:visited,
+#headerTitle a:hover, #headerTitle a:active {
+	text-decoration: none;
+}
+
+
+
+
+#page {
+	margin-top:150px;
+	margin : 0 auto;
+	width : 100%;
+	height : auto;
+	background : #E5EFF1; /* COLOR 4 */
+	overflow : auto;
+	box-shadow: 0px 0px 10px 4px #25507A;
+	-moz-box-shadow: 0px 0px 10px 4px #25507A;
+	-webkit-box-shadow: 0px 0px 10px 4px #25507A;
+}
+
+.tabulation {
+	margin-left: 3em;
+}
+	
+
+	#page2 {
+		text-align: center;
+		margin : 0px auto;
+	width : 1024px;
+	min-height: 850px;
+	height : auto;
+	background : #E5EFF1; /* COLOR 4 */
+	overflow : auto;
+	box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.90);
+	-moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+	}
+	
+	#logo {
+		margin-top:10%;
+	}
+
+#cleanLink a:link {
+	color: inherit;
+}
+
+/*- Style formatant les liens généraux (2) -*/
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+#block{
+
+text-align: center;
+
+}
+
+
+
+
+#menugauche{
+		background-image:url('http://image.noelshack.com/fichiers/2015/05/1422460500-bg2.png');
+		display: inline-block;
+		width : 30%;
+		margin :auto;
+		margin-top :20px;
+		padding : auto;
+		border: 2px solid #5C5C58;
+		vertical-align: top;
+		transition:all 0.3s ease-in-out;
+		cursor:pointer;
+	}
+
+#menugauche:hover {
+	box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+-moz-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+-webkit-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+}
+
+#menucentre{
+		background-image:url('http://image.noelshack.com/fichiers/2015/05/1422458509-bg2.png');
+		display: inline-block;
+		width : 30%;
+		margin : auto;
+		padding : auto;
+		margin-top :20px;
+		border: 2px solid #5C5C58;
+		vertical-align: top;
+		transition:all 0.3s ease-in-out;
+		cursor:pointer;
+
+	
+	}
+	
+#menucentre:hover {
+box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+-moz-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+-webkit-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+#menudroite{
+		background-image:url('http://image.noelshack.com/fichiers/2015/05/1422524842-bg2.png');
+		display: inline-block;
+		width : 30%;
+		padding : auto;
+		margin : auto;
+		margin-top :20px;
+		border: 2px solid #5C5C58;
+		vertical-align: top;
+		transition:all 0.3s ease-in-out;
+		cursor:pointer;
+	}
+	
+#menudroite:hover {
+box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+-moz-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+-webkit-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+}
+
+
+	
+#corps {
+	border: 2px solid #5C5C58;
+	margin: auto;
+	margin-top: 10px;
+	background : white;
+}
+
+.liste{
+
+		
+		border: 2px solid #5C5C58;
+		margin: auto;
+		margin-top: 10px;
+		background : white;
+		text-align: center;
+		display:none;
+		
+
+	}
+
+.contenu{
+
+border: 2px solid #5C5C58;
+margin: auto;
+margin-top: 10px;
+background : white;
+text-align: center;
+
+
+
+}
+
+
+
+.liste .onglet{
+
+display: inline-block;
+vertical-align: text-middle;
+width : 20%;
+cursor:pointer;
+height : 40px;
+width: 90px;
+vertical-align: top;
+text-align: center;
+line-height: 15px;
+
+
+
+
+}
+
+
+
+.onglet{
+
+background-color:#FFF;
+text-decoration: none;
+color:#5C5C58;
+width : 40%;
+display: block;
+margin: 10px auto;
+border: 1px solid #5C5C58;
+position:relative;
+border-radius:5px;
+text-align:center;
+padding:15px 15px;
+box-shadow: 0px 5px 0px #5C5C58;
+transition:all 0.3s ease-in-out;
+
+
+	}
+
+
+#corp .onglet{
+
+display: inline-block;
+width : 10%;
+cursor:pointer;
+
+
+
+}
+
+.onglet:hover{
+background-color: #5C5C58;
+color:white;
+border:solid 1px #444444;
+box-shadow: 0px 5px 0px #444444;
+}
+
+.onglet:active{
+background-color: #444444;
+color:white;
+border:solid 1px #444444;
+box-shadow: 0px 5px 0px #444444;
+
+}
+
+
+
+.contenu_onglet{
+	display: inline-block;
+	margin :auto;
+	margin-top :20px;
+	padding : auto;
+	border: 2px solid #5C5C58;
+	vertical-align: top;
+	display:none;
+	
+	}
+
+.contenuresume{
+	
+		display: inline-block;
+		width : 40%;
+		padding : auto;
+		margin : auto;
+		margin-top :20px;
+		border: 2px solid #5C5C58;
+		
+		
+}
+	
+
+.contenutechno{
+
+	display: inline-block;
+	width : 25%;
+	margin :auto;
+	margin-top :20px;
+	padding : auto;
+	border: 2px solid #5C5C58;
+	vertical-align: top;;
+}
+
+
+.contenumembre{
+	display: inline-block;
+	margin :auto;
+	width : 25%;
+	margin-top :20px;
+	padding : auto;
+	border: 2px solid #5C5C58;
+	vertical-align: top;
+	
+}
+
+#footer {
+	width : 100%;
+	height : 50px;	
+	margin : 0;
+
+	background: rgb(59,103,158); /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  rgba(59,103,158,1) 0%, rgba(43,136,217,1) 50%, rgba(43,136,217,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(59,103,158,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+	background: linear-gradient(135deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	color: #DEDEDE;
+	
+	font-family: 'Roboto';
+	text-align: center;
+	background-attachment:fixed;
+	margin-top: 35px;
+}
+
+/*- Style pour le bouton retour des pages [x4] -*/
+.bRetour {
+	-moz-box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+	box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
+	background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
+	background-color:#7892c2;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:8px 20px;
+	text-decoration:none;
+}
+.bRetour:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
+	background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
+	background-color:#476e9e;
+}
+.bRetour:active {
+	position:relative;
+	top:1px;
+}
+
+.bRetourDiv {
+	margin: 20px 45% 20px 45%;
+}

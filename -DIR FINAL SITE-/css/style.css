@@ -4,9 +4,9 @@
  *+--------------------------------------------------------------+
  */
 
-@import url('http://fonts.googleapis.com/css?family=Roboto');
-@font-face {font-family: 'Intro';	src: url('fonts/Intro.otf');}
-@font-face {font-family: Liquid Crystal; src: url('../fonts/LiquidCrystal-Normal.otf');}
+@font-face {font-family: 'Roboto'; src: url('../fonts/Roboto-Light.ttf');}
+@font-face {font-family: 'Intro';	src: url('../fonts/Intro.otf');}
+@font-face {font-family: 'Liquid Crystal'; src: url('../fonts/LiquidCrystal-Normal.otf');}
 
 /*- Style pour le body (Gradient background, Police générale) -*/
 body {
@@ -44,7 +44,7 @@ body {
 
 /*-Style pour les titres (Police, cadre, couleurs...)-*/
 h1, h2, h3 {
-	font-family: 'Century Gothic', cursive;
+	font-family: 'Century Gothic', Tahoma, sans-serif;
 	font-weight: normal;
 
 	border: 3px solid #5C5C58;
@@ -291,7 +291,7 @@ a:hover, a:visited, a:link, a:active
 }
 
 /*- Style pour le square FORUM et son texte [x2] -*/
-#sq1 {
+#sq0 {
 	height: 248px;
 	width: 504px;
 	overflow: hidden;
@@ -302,7 +302,7 @@ a:hover, a:visited, a:link, a:active
 	clear: none;
 	margin: 0px 0px 4px 0px;
 }
-#sq1Text {
+#sq0Text {
 	margin-top: 106px;
 	margin-bottom: 106px;
 	text-align: center;
@@ -312,7 +312,7 @@ a:hover, a:visited, a:link, a:active
 }
 
 /*- Style pour le square ACTU et son texte [x2] -*/
-#sq2 {
+#sq1 {
 	height: 504px;
 	width: 248px;
 	overflow: hidden;
@@ -323,7 +323,7 @@ a:hover, a:visited, a:link, a:active
 	clear: none;
 	margin: 4px 0px 4px 0px;
 }
-#sq2Text {
+#sq1Text {
 	margin-top: 232px;
 	margin-bottom: 232px;
 	text-align: center;
@@ -333,12 +333,33 @@ a:hover, a:visited, a:link, a:active
 }
 
 /*- Style pour le square CALENDRIER et son texte [x2] -*/
-#sq3 {
+#sq2 {
 	height: 248px;
 	width: 248px;
 	overflow: hidden;
 
 	background-color: #E1DC43;	
+
+	float: left;
+	clear: none;
+	margin: 4px 0px 4px 0px;
+}
+#sq2Text {
+	margin-top: 106px;
+	margin-bottom: 106px;
+	text-align: center;
+	font-family: "Intro";
+	font-size: 33px;
+	color: #161616;
+}
+
+/*- Style pour le square PROJETS et son texte [x2] -*/
+#sq3 {
+	height: 248px;
+	width: 248px;
+	overflow: hidden;
+
+	background-color: #9778D6;	
 
 	float: left;
 	clear: none;
@@ -353,13 +374,13 @@ a:hover, a:visited, a:link, a:active
 	color: #161616;
 }
 
-/*- Style pour le square PROJETS et son texte [x2] -*/
+/*- Style pour le square CONTACT et son texte [x2] -*/
 #sq4 {
 	height: 248px;
 	width: 248px;
 	overflow: hidden;
 
-	background-color: #9778D6;	
+	background-color: #5CE5DD;	
 
 	float: left;
 	clear: none;
@@ -374,29 +395,8 @@ a:hover, a:visited, a:link, a:active
 	color: #161616;
 }
 
-/*- Style pour le square CONTACT et son texte [x2] -*/
-#sq5 {
-	height: 248px;
-	width: 248px;
-	overflow: hidden;
-
-	background-color: #5CE5DD;	
-
-	float: left;
-	clear: none;
-	margin: 4px 0px 4px 0px;
-}
-#sq5Text {
-	margin-top: 106px;
-	margin-bottom: 106px;
-	text-align: center;
-	font-family: "Intro";
-	font-size: 33px;
-	color: #161616;
-}
-
 /*- Style pour le square FAQ et son texte [x2] -*/
-#sq6 {
+#sq5 {
 	height: 248px;
 	width: 248px;
 	overflow: hidden;
@@ -407,7 +407,7 @@ a:hover, a:visited, a:link, a:active
 	clear: none;
 	margin: 4px 0px 4px 0px;
 }
-#sq6Text {
+#sq5Text {
 	margin-top: 106px;
 	margin-bottom: 106px;
 	text-align: center;
