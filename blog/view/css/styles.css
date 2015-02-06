@@ -1,0 +1,456 @@
+/* -- RESET -- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+}
+
+/* -- END RESET -- */
+
+
+/* -- GENERAL -- */
+
+body {
+	background: #EEE;
+	font-family: 'Helvetica', 'Arial', sans-serif;
+	min-width: 550px;
+	margin-bottom: 20px;
+	cursor: default;
+}
+div#wrapper {
+	max-width: 1200px;
+	padding: 10px;
+	margin: 0 auto;
+	text-align: center;
+}
+img {
+	max-width: 1200px;
+}
+
+/* -- END GENERAL -- */
+
+
+/* -- PAGE HEADER -- */
+
+header#page-header {
+	position: relative;
+	background: linear-gradient(0deg, #444, #555 50%, #666);
+	overflow: auto;
+	padding: 15px 0;
+	color: #FFF;
+	box-shadow: 1px 1px 15px #555, 1px 10px 15px #555 inset;
+}
+#page-header > div {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+#page-header h1 {
+	margin: 0;
+	float: left;
+	font-size: 2em;
+	text-shadow: 0 0 3px #FFF;
+	transition: text-shadow .3s;
+}
+#page-header h1:hover {
+	text-shadow: 0 0 5px #FFF;
+}
+#page-header h1 a {
+	color: #FFF;
+}
+#page-header > div > div {
+	float: right;
+}
+#page-header > div > div > span {
+	color: #FFF;
+}
+#page-header > div > div > a {
+	display: inline-block;
+	color: #FFF;
+	padding: 6px;
+	border: 2px solid #FFF;
+	border-radius: 5px;
+	margin-left: 10px;
+	transition: color .3s, background .3s;
+}
+#page-header > div > div > a:hover {
+	color: #555;
+	background: #FFF;
+}
+
+/* -- END PAGE HEADER -- */
+
+
+/* -- NAV -- */
+
+nav#page-nav {
+	position: relative;
+	border: 3px solid #777;
+	display: inline-block;
+	margin: 40px 0 20px 0;
+	background: linear-gradient(0deg, #444, 50% #555, #666);
+	box-shadow: 1px 1px 5px #555;
+	border-radius: 5px;
+	overflow: auto;
+}
+#page-nav li {
+	display: inline-block;
+	float: left;
+	border-right: 1px solid #999;
+}
+#page-nav li:first-child {
+	border-radius: 4px 0 0 4px;
+}
+#page-nav li:last-child {
+	border-radius: 0 4px 4px 0;
+	border-right: none;
+}
+#page-nav li a {
+	display: block;
+	background: #FFF;
+	padding: 10px 25px;
+	color: #444;
+	opacity: .85;
+	transition: background .3s, color .3s, opacity .3s;
+}
+#page-nav li:first-child a {
+	border-radius: 2px 0 0 2px;
+}
+#page-nav li:last-child a {
+	border-radius: 0 2px 2px 0;
+	border-right: none;
+}
+#page-nav li a:hover, #page-nav li.active a {
+	color: #FFF;
+	background: #444;
+	opacity: 1;
+}
+
+/* -- PAGE NAV -- */
+
+
+/* -- PAGE CONTENT -- */
+
+section#page-content {
+	max-width: 1200px;
+	margin: 20px auto;
+	color: #333;
+}
+#page-content h2 {
+	font-size: 3em;
+	letter-spacing: 1px;
+	color: #666;
+}
+#page-content > a {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px;
+	color: #444;
+	border: 2px solid #444;
+	border-radius: 5px;
+	transition: background .3s, color .3s;
+}
+#page-content > a:hover {
+	background: #444;
+	color: #FFF;
+}
+
+section#error-content {
+	text-align: center;
+	margin: 100px 0;
+}
+#error-content div {
+	display: inline-block;
+	vertical-align: middle;
+}
+#error-content img {
+	max-width: 600px;
+	padding-right: 40px;
+	border-right: 2px solid #BBB;
+}
+#error-content div h2 {
+	font-size: 3em;
+	margin-bottom: 20px;
+}
+#error-content div p {
+	font-size: 1.2em;
+	max-width: 500px;
+	letter-spacing: 2px;
+}
+#error-content div:last-child {
+	padding-left: 40px;
+	text-align: left;
+}
+
+section#listArticles {
+	position: relative;
+	overflow: auto;
+	margin: 10px 0;
+}
+#listArticles > p > a {
+	background: #FFF;
+	box-shadow: 1px 1px 1px #999;
+	margin: 5px;
+	padding: 5px 10px;
+	border-radius: 4px;
+	color: #444;
+	transition: background .3s, color .3s;
+}
+#listArticles > p > a:hover, #listArticles > p > a.active {
+	background: #444;
+	color: #FFF;
+}
+#listArticles > p {
+	margin: 10px 0;
+	float: left;
+}
+#listArticles > p.center {
+	text-align: center;
+	width: 50%;
+	margin-left: 13%;
+}
+#listArticles > p:first-child {
+	text-align: left;
+	float: left;
+}
+#listArticles > p:last-child {
+	text-align: right;
+	float: right;
+	width: 13%;
+}
+#listArticles .article {
+	position: relative;
+	padding: 10px;
+	margin: 20px 0;
+	background: #FFF;
+	cursor: pointer;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	text-align: left;
+	transition: box-shadow .3s, background .3s, color .3s, border-color .3s;
+}
+#listArticles .article:hover {
+	border-color: #444;
+	background: #444;
+	color: #FFF;
+	box-shadow: 1px 1px 2px #888;
+}
+#listArticles > a:hover {
+	color: #FFF;
+}
+#listArticles .article h3 {
+	font-size: 2em;
+	margin-bottom: 20px;
+	letter-spacing: 2px;
+}
+#listArticles > a {
+	color: #444;
+}
+#listArticles .article p {
+	margin-bottom: 40px;
+	letter-spacing: 1px;
+}
+#listArticles .article span {
+	position: absolute;
+	bottom: 5px;
+}
+#listArticles .article span:first-child {
+	left: 5px;
+}
+#listArticles .article span:last-child {
+	right: 5px;
+}
+
+#article-body {
+	margin: 10px 0;
+	text-align: left;
+}
+#article-body p, h1, h2, h3 {
+	margin: 20px 0;
+	letter-spacing: 1px;
+}
+#article-body p {
+	line-height: 1.5em;
+}
+#article-body h1 {
+	font-size: 22px;
+}
+#article-body h2 {
+	font-size: 20px;
+}
+#article-body h3 {
+	font-size: 18px;
+}
+#article-body strong {
+	font-weight: bold;
+}
+#article-body ul {
+	list-style-type: circle;
+	margin-left: 15px;
+}
+#article-body ul li {
+	margin: 5px 0;
+}
+#article-date-time {
+	margin-top: 10px;
+	float: left;
+	color: #777;
+}
+#article-author span {
+	margin-top: 10px;
+	float: right;
+	color: #777;
+}
+#article-author span:last-child {
+	clear: both;
+	margin: 10px 0;
+}
+
+section#adminListArticles {
+	margin: 30px 0;
+}
+#adminListArticles table {
+	width: 100%;
+	text-align: center;
+}
+#adminListArticles table th {
+	background: #888;
+	color: #FFF;
+	padding: 10px 0;
+}
+#adminListArticles table td {
+	padding: 10px 0;
+	border-bottom: 1px solid #999;
+}
+#adminListArticles table a {
+	margin: 0 5px;
+	padding: 4px;
+	color: #777;
+	transition: color .3s;
+}
+#adminListArticles table a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+section#articleEdition {
+	margin: 40px 0;
+	overflow: auto;
+}
+#articleEdition input[type="text"] {
+	width: 98.8%;
+	margin-bottom: 20px;
+	color: #444;
+	border: 1px solid #999;
+	padding: 10px 0 10px 10px;
+	font-size: 20px;
+}
+#articleEdition input[type="text"]:focus {
+	box-shadow: 1px 1px 2px #999;
+}
+#articleEdition input[type="submit"] {
+	float: right;
+	width: 150px;
+	border: 2px solid #444;
+	padding: 10px;
+	margin-top: 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background .3s, color .3s;
+}
+#articleEdition input[type="submit"]:hover {
+	background: #444;
+	color: #FFF;
+}
+
+/* -- END PAGE CONTENT --*/
+
+
+/* -- PAGE FOOTER -- */
+
+footer#page-footer {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 5px 10px;
+	background: linear-gradient(0deg, #222, #333);
+	color: #FFF;
+	box-shadow: 1px -2px 15px #555;
+}
+#page-footer span:first-child {
+	float: left;
+}
+#page-footer span:last-child {
+	float: right;
+}
+#page-footer a {
+	color: #FFF;
+	opacity: .95;
+	transition: opacity .2s;
+}
+#page-footer a:hover {
+	opacity: 1;
+}
+
+/* -- END PAGE FOOTER -- */
+
+
+/* -- MEDIA QUERIES -- */
+
+@media screen and (max-width: 1280px) {
+
+	nav#page-nav {
+		margin-top: 20px;
+	}
+	#page-nav li a {
+		padding: 8px 20px;
+	}
+	#error-content img {
+		max-width: 400px;
+		padding-right: 20px;
+	}
+
+}
+
+/* -- END MEDIA QUERIES -- */

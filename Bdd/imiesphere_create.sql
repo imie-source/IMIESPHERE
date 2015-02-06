@@ -7,7 +7,7 @@ CREATE DATABASE imiesphere
 USE imiesphere;
 
 
-CREATE TABLE Utilisateur(
+CREATE TABLE utilisateur(
         id_utilisateur     int (11) Auto_increment  NOT NULL ,
         pseudo             Varchar (25) ,
         nom_utilisateur    Varchar (50) NOT NULL ,
@@ -19,7 +19,7 @@ CREATE TABLE Utilisateur(
 )ENGINE=InnoDB;
 
 
-CREATE TABLE Profil(
+CREATE TABLE profil(
         id_profil int (11) Auto_increment  NOT NULL ,
         libelle   Varchar (25) ,
         PRIMARY KEY (id_profil )
@@ -40,6 +40,8 @@ CREATE TABLE article(
         id_article      int (11) Auto_increment  NOT NULL ,
         title_article   Varchar (50) NOT NULL ,
         content_article Longtext NOT NULL ,
+        publication_article Datetime NOT NULL,
+        edition_article Datetime NOT NULL,
         id_utilisateur  Int ,
         PRIMARY KEY (id_article )
 )ENGINE=InnoDB;
@@ -61,16 +63,6 @@ CREATE TABLE message_forum(
         id_utilisateur    Int ,
         id_topic          Int NOT NULL ,
         PRIMARY KEY (id_msg_forum )
-)ENGINE=InnoDB;
-
-
-CREATE TABLE message_blog(
-        id_msg_blog      int (11) Auto_increment  NOT NULL ,
-        date_msg_blog    Datetime NOT NULL ,
-        content_msg_blog Longtext NOT NULL ,
-        id_article       Int NOT NULL ,
-        id_utilisateur   Int ,
-        PRIMARY KEY (id_msg_blog )
 )ENGINE=InnoDB;
 
 
@@ -115,17 +107,17 @@ CREATE TABLE projet(
         PRIMARY KEY (id_projet )
 )ENGINE=InnoDB;
 
-ALTER TABLE Utilisateur ADD CONSTRAINT FK_Utilisateur_id_profil FOREIGN KEY (id_profil) REFERENCES Profil(id_profil);
-ALTER TABLE topic_forum ADD CONSTRAINT FK_topic_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
+ALTER TABLE utilisateur ADD CONSTRAINT FK_utilisateur_id_profil FOREIGN KEY (id_profil) REFERENCES profil(id_profil);
+ALTER TABLE topic_forum ADD CONSTRAINT FK_topic_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur);
 ALTER TABLE topic_forum ADD CONSTRAINT FK_topic_forum_id_categorie FOREIGN KEY (id_categorie) REFERENCES categorie_forum(id_categorie);
-ALTER TABLE article ADD CONSTRAINT FK_article_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
-ALTER TABLE message_tchat ADD CONSTRAINT FK_message_tchat_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
-ALTER TABLE message_forum ADD CONSTRAINT FK_message_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
+ALTER TABLE article ADD CONSTRAINT FK_article_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur);
+ALTER TABLE message_tchat ADD CONSTRAINT FK_message_tchat_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur);
+ALTER TABLE message_forum ADD CONSTRAINT FK_message_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur);
 ALTER TABLE message_forum ADD CONSTRAINT FK_message_forum_id_topic FOREIGN KEY (id_topic) REFERENCES topic_forum(id_topic);
 ALTER TABLE message_blog ADD CONSTRAINT FK_message_blog_id_article FOREIGN KEY (id_article) REFERENCES article(id_article);
-ALTER TABLE message_blog ADD CONSTRAINT FK_message_blog_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
+ALTER TABLE message_blog ADD CONSTRAINT FK_message_blog_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur);
 ALTER TABLE categorie_forum ADD CONSTRAINT FK_categorie_forum_id_theme FOREIGN KEY (id_theme) REFERENCES theme_forum(id_theme);
-ALTER TABLE categorie_forum ADD CONSTRAINT FK_categorie_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
-ALTER TABLE theme_forum ADD CONSTRAINT FK_theme_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur);
+ALTER TABLE categorie_forum ADD CONSTRAINT FK_categorie_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur);
+ALTER TABLE theme_forum ADD CONSTRAINT FK_theme_forum_id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur);
 
 GRANT ALL PRIVILEGES ON imiesphere.* TO 'admin'@'localhost'  IDENTIFIED BY 'administrator';

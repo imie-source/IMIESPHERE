@@ -14,14 +14,14 @@ function afficheTheme() {
 						var tabTheme = tabThemes[i].split(";");
 						var themeLib = tabTheme[0];
 						var themeId = tabTheme[1];
-						console.log(themeId);
-						ctn += "<button class='btn' onclick=\"afficheCat('" + themeId + "');\">";
-						ctn += themeLib + "</button>";
+						//console.log(themeId);
+						ctn += "<div id=sq" + i + " onclick=\"afficheCat('" + themeId + "');\">";
+						ctn += "<div id=sq"+i+"Text>" +themeLib + "</div></div>";
 					}
 										
 				}
 				// Je mets à jour le contenu du div d'id "messages"
-				$("#content").html(ctn);
+				$("#corpsACC").html(ctn);
 		   }
 	);
 }
@@ -43,13 +43,15 @@ function afficheCat(id_theme) {
 						var tabCat = tabCats[i].split(";");
 						var catLib = tabCat[0];
 						var catId = tabCat[1];
-						//console.log("test");
-						ctn += "<button class = 'btn'>" + catLib + "</button>";
+						console.log(i);
+						ctn += "<div id=sq" + i + " onclick=\"afficheTopic('" + catId + "');\">";
+						ctn += "<div id=sq"+i+"Text>" + catLib + "</div></div>";
 					}
 										
 				}
 				// Je mets à jour le contenu du div d'id "messages"
-				$("#content").html(ctn);
+				$("#corpsACC").html(ctn);
+				// Afficher la barre des themes..
 		   }
 	);
 }

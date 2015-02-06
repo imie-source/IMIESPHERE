@@ -1,0 +1,9 @@
+<h2 id="article-title"><?php echo $vars['title']; ?></h2>
+<div id="article-body"><?php echo $vars['content']; ?></div>
+<div id="article-date-time"><?php echo $vars['dateTime']; ?></div>
+<div id="article-author">
+	<span><?php echo 'Rédigé par '.$vars['user']; ?></span>
+	<span><?php echo (isset($vars['editDateTime'])) ? 'Dernière mise à jour le '.$vars['editDateTime'] : ''; ?></span>
+</div>
+<div id="disqus_thread"></div>
+    

@@ -3,5 +3,5 @@ dbhost=127.0.0.1
 dbport=3306
 dblogin=admin
 dbpassword=administrator
-dbname=imisphere
+dbname=imiesphere
 dbtype=mysql
