@@ -186,7 +186,7 @@
 
 		else {
 
-			include (__DIR__ . "/../HTML/envoie_ko");
+			include (__DIR__ . "/../HTML/envoie_ko.html");
 		}
 	}
 
