@@ -8,56 +8,73 @@
 	 * @since 05/01/2015
 	 */
 
+	// Définition des constantes
 	define('ENVOI_KO', 1);
-
-	define('ENVOI_OK', 2);
-			
+	define('ENVOI_OK', 2);	
 
 	require_once ("bdd_inc.php");
-
 	require_once (__DIR__ . "/../../lib/PHPMailer/class.phpmailer.php");
+	require_once (__DIR__ . "/../../lib/PHPMailer/class.smtp.php");
 
 	/**
 	 * Fonction qui configure PHPMailer et envoie le mail
 	 *
+	 * @param $message Le message à envoyer
 	 * @return Vrai si le mail a été envoyé, Faux si il y a eu une erreur
 	 */
-	function mailPHPMailer() {
+	function mailPHPMailer($message) {
 		
+		// On crée une nouvelle instance de la classe
 		$mail = new PHPMailer();
 
+		// On active SMTP
 		$mail->IsSMTP();
 
+		// On passe à active l'authentification SMTP
 		$mail->SMTPAuth = true;
 
-		$mail->SMTPSecure = 'ssl';
+		// Gmail nécéssite un transfert sécurisé, on définit donc un système de cryptage à utiliser
+		$mail->SMTPSecure = 'tls';
 
+		// On définit le nom d'hôte du serveur mail ici Gmail
 		$mail->Host = 'smtp.gmail.com';
 
-		$mail->Port = 465;
+		// On définit le numéro de port SMTP
+		$mail->Port = 587;
 
-		$mail->CharSet = "utf-8";
+		// On définit le niveau d'encodage à UTF-8 pour gérer les caractères spéciaux
+		$mail->CharSet = "UTF-8";
 
+		// On définit le nom d'utilisateur pour l'authentification SMTP
+		// Ici il est définit dans un autre fichier par sécurité
 		$mail->Username = USERNAME;
 
+		// On définit le mot de passe pour l'authentification SMTP
+		// Ici il est définit dans un autre fichier par sécurité
 		$mail->Password = PASSWORD;
 
-		$mail->SetFrom(USERNAME, "IMIE Sph&egrave;re");
+		// On définit par qui le message a été envoyé
+		$mail->SetFrom($_POST["emailaddress"], $_POST["nom"]);
 
-		$mail->AddAddress($_POST["emailaddress"], $_POST["nom"]);
+		// On définit à qui le message est envoyé
+		$mail->AddAddress(USERNAME, "IMIE Sph&egrave;re");
 
+		// On définit le sujet du message
 		$mail->Subject = $_POST["objet"];
 
-		$mail->MsgHTML($_POST["msg"]);
+		// On définit le message au format HTML
+		$mail->MsgHTML($message);
 
+		// On envoie le message et on check s'il y a eu des erreurs
 		if (!$mail->Send()) {
 
+			// Si l'envoie du mail se passe mal on retourne la constante d'erreur
 			return ENVOI_KO;
-			
 		}
 
 		else {
 
+			// Sinon on retourne la constante OK
 			return ENVOI_OK;
 		}
 	}
@@ -123,24 +140,57 @@
 		$dbLink = NULL;
 	}
 	
+	// Si il y a eu soummission de formulaire
 	if (isset($_POST["send"])) {
 
-		$res = mailPHPMailer();
+		if (check_mail($_POST["emailaddress"])) {
 
-		$send = envoieMessage($_POST["nom"], $_POST["tel"], $_POST["emailaddress"], $_POST["objet"], $_POST["msg"]);
-		
-		switch ($res) {
+			if (!empty($_POST["msg"]) && !empty($_POST["nom"]) && !empty($_POST["emailaddress"]) && !empty($_POST["objet"]) && !empty($_POST["tel"])) {
 
-			case ENVOI_OK:
-				include (__DIR__ . "/../HTML/envoie_ok.html");
-				break;
+				// On stocke les infos relatives au mail en base de données
+				$res = envoieMessage($_POST["nom"], $_POST["tel"], $_POST["emailaddress"], $_POST["objet"], $_POST["msg"]);
 
-			case ENVOI_KO:
-				include (__DIR__ . "/../HTML/envoie_ko.html");
-				break;
+				$nom = $_POST["nom"];
+
+				$mail = $_POST["emailaddress"];
+
+				$tel = $_POST["tel"];
+
+				$objet = $_POST["objet"];
+
+				$msg = $_POST["msg"];
+
+				$msgHTML = "<html><head><meta charset = 'utf-8'/></head><body><p>" . $msg . "<br/><br/><br/><br/>" . $nom . "<br/>" . $mail . "<br/>" . $tel . "<br/></p></body></html>";
+
+				// On fait appelle à la fonction d'envoie du mail
+				$send = mailPHPMailer($msgHTML);
+				
+				switch ($send) {
+
+					case ENVOI_OK:
+						include (__DIR__ . "/../HTML/envoie_ok.html");
+						break;
+
+					case ENVOI_KO:
+						include (__DIR__ . "/../HTML/envoie_ko.html");
+						break;
+				}
+			}
+
+			else {
+
+				echo "L'un des champs est vide";
+				die();
+			}
+		}
+
+		else {
+
+			include (__DIR__ . "/../HTML/envoie_ko");
 		}
 	}
 
+	// Sinon on affiche le formulaire
 	else {
 
 		require (__DIR__ . "/../HTML/contact.html");

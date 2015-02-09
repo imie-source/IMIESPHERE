@@ -93,9 +93,10 @@ input {
 }
 
 #send_ok {
+	padding-left: 10px;
+	padding-right: 10px;
 	border: solid #777;
 	border-radius: 10px;
-	width: 500px;
 	background-image: url("../Doc/Image/fond.png");
 	color: #444;
 	display: inline-block;
@@ -108,7 +109,7 @@ input {
 	border-radius: 10px;
 	float: right;
 	width: 250px;
-	height: 275px;
+	height: 250px;
 	background-image: url("../Doc/Image/fond.png");
 }
 
@@ -116,4 +117,12 @@ input {
 	font-family: Consolas;
 	padding-left: 15px;
 	text-align: left;
+}
+
+#err {
+	color: red;
+}
+
+#thx {
+	color: green;
 }
