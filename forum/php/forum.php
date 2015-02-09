@@ -105,7 +105,7 @@ if ($action == "listeTheme") {
 	$liste = getCat($_GET["id_theme"]);
 	$res = "";
 	foreach($liste as $cat) {
-		$res .= $cat["libelle_categorie"] . ";" . $cat["id_categorie"]  . "\n";
+		$res .= ucfirst($cat["libelle_categorie"]) . ";" . $cat["id_categorie"]  . "\n";
 	}	
 	die($res);
 }else if($action == "listeTopic"){

@@ -15,7 +15,7 @@ if (!isset($self))
 
 switch($action) {
 		case 'faccueil' :
-			$self .= "?action=aacueil";
+			$self .= "?action=faccueil";
 			include(__DIR__ . "/accueil.php");
 			break;
 		case 'listeTheme':
@@ -23,7 +23,8 @@ switch($action) {
 		case 'listeTopic':
 		case 'listeMsg' :
 		case 'ftheme' :
-		default :	include(__DIR__ . "/forum.php");
+		default : 
+			include(__DIR__ . "/forum.php");
 			break;
 
 }
