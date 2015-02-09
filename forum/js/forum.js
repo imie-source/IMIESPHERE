@@ -109,6 +109,7 @@ function afficheTopic(id_categorie) {
 	$("#loader").show();
 	$("#corpsACC").hide();
 	$("#titre").hide();
+
 	// Utilisation de la méthode get de jQuery
 	$.get( "/forum/php/index.php", 
 		   { action: "listeTopic", 
@@ -121,22 +122,31 @@ function afficheTopic(id_categorie) {
 					tabTops[i] = tabTops[i].trim();
 					if (tabTops[i] != "") {
 						var tabTop = tabTops[i].split(";");
+						
+						// Nom du topic, champ 1
 						var topLib = tabTop[0];
+						// Id du topic, champ 2
 						var topId = tabTop[1];
+						// Id de l'utilisateur, champ 3
 						var topUserID = tabTop[2];
+						// Date du topic, champ 4
 						var topDate = tabTop[3];
+						// Messages, champ 5
+						var topMsg = tabTop[4];
+
+						if(topMsg=="")
+							topMsg=0;
 						
-						//console.log("test");
-						
+						// J'affiche les topics avec leur nom, la date, l'utilisateur.						
 						ctn += "<table>";
        					ctn +=			"<thead>";
           				ctn +=				"<tr>";
-            			ctn +=					"<th>" + topId + "</th>";
+            			ctn +=					"<th><div class='btn' onclick=\"afficheMsg('" + topId + "');\">" + topLib + "</div></th>";
         				ctn +=				"</tr>";
         				ctn +=			"</thead>";
         				ctn +=			"<tbody>";
           				ctn +=				"<tr class='light'>";
-            			ctn +=					"<td><div class='btn' onclick=\"clic(afficheMsg, '"+topLib+"', '"+topId+"');\">" + topLib + "</div></td>";
+            			ctn +=					"<td>" + topMsg + " messages dans ce topic.</td>";
           				ctn +=				"</tr>";
         				ctn +=				"<tr class='dark'>";
             			ctn +=				"<td>" + topUserID + " a publié le " + topDate + "</td>";
@@ -152,6 +162,8 @@ function afficheTopic(id_categorie) {
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
 				$("#titre").html(back[2]);
+				//Scroll topics gauche
+				$("#corpsACC").css("overflow", "scroll"); 
 		   }
 	);
 }
@@ -174,12 +186,21 @@ function afficheMsg(id_topic) {
 					if (tabMsgs[i] != "") {
 						var tabMsg = tabMsgs[i].split(";");
 						
+						// Libelle du message, premier champ du tableau
 						var msgLib = tabMsg[0];
+						// Id du msg, second champ
 						var msgId = tabMsg[1];
+						// Utilisateur qui a ecrit le msg, troisieme champ
 						var msgUser = tabMsg[2];
+						// La date à laquelle le msg a ete ecrit, quatrieme champ
 						var msgDate = tabMsg[3];
+						// Id du topic auquel le msg appartient, cinquieme champ, pour la fonction "refresh"
+						var topId = tabMsg[4];
 
+
+						// Si la variable i est paire
 						if(i%2){
+						// On affiche le message avec son contenu, son créateur, sa date	
 						ctn += "<table>";
         				ctn +=		"<tbody>";
           				ctn +=			"<tr class='light'>";
@@ -188,6 +209,8 @@ function afficheMsg(id_topic) {
           				ctn +=			"</tr>";
           				ctn +=		"</tbody>";
       					ctn += "</table>";
+
+      					// Si la varible i est impaire, même chose mais d'une couleur differente
       					}else{
       					ctn += "<table>";
         				ctn +=		"<tbody>";
@@ -197,6 +220,9 @@ function afficheMsg(id_topic) {
        					ctn +=			  "</tr>";
 		      			ctn +=		"</tbody>";
       					ctn += "</table>";
+
+      					
+      					//setInterval("afficheMsg("+ topId +");", 20000);
       					}
 					}
 										
@@ -207,6 +233,8 @@ function afficheMsg(id_topic) {
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
 				$("#titre").html(back[3]);
+				// Scrool messages gauche
+				$("#corpsACC").css("overflow", "scroll"); 
 		   }
 	);
 }
