@@ -1,9 +1,16 @@
 <?php
 
+/**
+* Classe ArticleController
+*
+* Cette classe regroupe toutes les actions publiques
+*/
 class ArticleController extends Controller {
 
 	/**
-	* @var $_articlesPerPage Nombre d'articles par page
+	* @var string $_articlesPerPage Nombre d'articles par page
+	*
+	* @access private
 	*/
 	private $_articlesPerPage = ARTICLES_PER_PAGE;
 
