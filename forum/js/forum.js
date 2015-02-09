@@ -17,12 +17,17 @@ $(document).ajaxStop(function() {
 var back = ['Themes'];
 var path = ['0'];
 var TIME = 500;
+var page = 1;
 
 function clic(fonc, par1, par2){
 	fonc(par2);
 	back.push(par1)
 	history();
 	path.push(par2);
+	page ++;
+	if(page==3){
+		$("#corpsACC").css("overflow", "scroll");
+	}
 	//console.log(path);
 }
 
@@ -58,6 +63,8 @@ function afficheTheme() {
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
 				$("#titre").html('THEMES');
+				//page = 1;
+				console.log(page);
 				//path.push(themeLib);
 				//$("#theme").html(thm);
 		   }
@@ -98,6 +105,8 @@ function afficheCat(id_theme) {
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
 				$("#titre").html(back[1]);
+				console.log(page);
+				//page = 2;
 				// Afficher la barre des themes..
 		   }
 	);
@@ -162,8 +171,11 @@ function afficheTopic(id_categorie) {
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
 				$("#titre").html(back[2]);
+				console.log(page);
+				//page = 3;
 				//Scroll topics gauche
-				$("#corpsACC").css("overflow", "scroll"); 
+				//$("#corpsACC").css("overflow", "scroll");
+
 		   }
 	);
 }
@@ -233,8 +245,10 @@ function afficheMsg(id_topic) {
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
 				$("#titre").html(back[3]);
+				console.log(page);
+				//page = 4;
 				// Scrool messages gauche
-				$("#corpsACC").css("overflow", "scroll"); 
+				//$("#corpsACC").css("overflow", "scroll"); 
 		   }
 	);
 }
@@ -248,6 +262,10 @@ function clic2(fonc, par1, par2, par3){
 	back.splice(back.length-1, back.length-1);
 	path.splice(path.length-1, path.length-1);	
 	history();
+	page --;
+	if(page!=3){
+		$("#corpsACC").css("overflow", "auto");
+	}
 }
 
 
@@ -269,9 +287,10 @@ function history(){
 
 	    ctn += "<button class='bh' onclick='"+level+";'>"+back[i]+"</button>";
 	}
-	console.log(back);
-	console.log(path);
+	//console.log(back);
+	//console.log(path);
 	setTimeout(function() { $("#history").show(); }, TIME);
 	$("#history").html(ctn);
 }
+
 
