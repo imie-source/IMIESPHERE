@@ -1,19 +1,4 @@
 
-/*$(document).ajaxStart(function() {
-  //$("#loader").show();
-  //$("#loader").css('background', 'url(../html/loader.gif) no-repeat');
-  //$('#corpsACC').html('<span>Loading...</span>')
-  $('#corpsACC').css('background', 'red');
-  setTimeout(function() { $("#corpsACC").hide(); }, 5000);
-  console.log("load");
-});
-
-$(document).ajaxStop(function() {
-  //$("#loader").hide();
-  //$('#corpsACC').css('background', 'red').delay(500000);
-  //$('#corpsACC').css('background', 'none');
-});*/
-
 var back = ['Themes'];
 var path = ['0'];
 var TIME = 500;
@@ -21,14 +6,13 @@ var page = 1;
 
 function clic(fonc, par1, par2){
 	fonc(par2);
-	back.push(par1)
-	history();
+	back.push(par1)	
 	path.push(par2);
+	history();
 	page ++;
-	if(page==3){
+	if(page>=3){
 		$("#corpsACC").css("overflow", "scroll");
 	}
-	//console.log(path);
 }
 
 function afficheTheme() {
@@ -36,6 +20,7 @@ function afficheTheme() {
 	$("#loader").show();
 	$("#corpsACC").hide();
 	$("#titre").hide();
+	$('#creatop').hide()
 	// Utilisation de la méthode get de jQuery
 	$.get( "/forum/php/index.php", 
 		   { action: "listeTheme" },
@@ -63,16 +48,11 @@ function afficheTheme() {
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
 				$("#titre").html('THEMES');
-				//page = 1;
 				console.log(page);
-				//path.push(themeLib);
-				//$("#theme").html(thm);
 		   }
 		 
 	);
 }
-
-//onclick=\"afficheCat('" + themeId + "');\"
 
 function afficheCat(id_theme) {
 	$("#loader").html('<img src="../html/loader.gif">');
@@ -106,8 +86,6 @@ function afficheCat(id_theme) {
 				$("#corpsACC").html(ctn);
 				$("#titre").html(back[1]);
 				console.log(page);
-				//page = 2;
-				// Afficher la barre des themes..
 		   }
 	);
 }
@@ -118,7 +96,6 @@ function afficheTopic(id_categorie) {
 	$("#loader").show();
 	$("#corpsACC").hide();
 	$("#titre").hide();
-
 	// Utilisation de la méthode get de jQuery
 	$.get( "/forum/php/index.php", 
 		   { action: "listeTopic", 
@@ -127,6 +104,8 @@ function afficheTopic(id_categorie) {
 				// Je mets en forme le contenu reçu
 				var ctn = "";
 				var tabTops = data.split("\n");
+				ctn += "<h3><input type='submit" + "'value = \"+\" onclick=\"creerTopic()\"> Creation de topic</h3>";					
+					
 				for(var i = 0; i < tabTops.length; i++) {
 					tabTops[i] = tabTops[i].trim();
 					if (tabTops[i] != "") {
@@ -150,7 +129,7 @@ function afficheTopic(id_categorie) {
 						ctn += "<table>";
        					ctn +=			"<thead>";
           				ctn +=				"<tr>";
-            			ctn +=					"<th><div class='btn' onclick=\"afficheMsg('" + topId + "');\">" + topLib + "</div></th>";
+            			ctn +=					"<th><div class='btn' onclick=\"clic(afficheMsg, '"+topLib+"', '"+topId+"');\">" + topLib + "</div></th>";
         				ctn +=				"</tr>";
         				ctn +=			"</thead>";
         				ctn +=			"<tbody>";
@@ -172,10 +151,6 @@ function afficheTopic(id_categorie) {
 				$("#corpsACC").html(ctn);
 				$("#titre").html(back[2]);
 				console.log(page);
-				//page = 3;
-				//Scroll topics gauche
-				//$("#corpsACC").css("overflow", "scroll");
-
 		   }
 	);
 }
@@ -246,19 +221,60 @@ function afficheMsg(id_topic) {
 				$("#corpsACC").html(ctn);
 				$("#titre").html(back[3]);
 				console.log(page);
-				//page = 4;
-				// Scrool messages gauche
-				//$("#corpsACC").css("overflow", "scroll"); 
 		   }
 	);
 }
+
+function creerTopic() {
+	$.get( "/forum/php/index.php", 
+		   { action: "creerTopic"},
+		   //var ctn = "";
+	       function( data ) { // Fonction de callback en cas de succès
+				// Je mets en forme le contenu reçu
+				var ctn = "";
+					ctn += "<h3>Creation de topic !</h3>";
+					ctn += "<form method='POST' action='topic.php'>";
+					ctn += "<p><input type='text' name=\"libelle_topic\" value='Votre titre ici'></p>";
+					//ctn += "<p><textarea rows=20 COLS=60 name=\"contenu_message\">Votre message ici</textarea></p>";
+					ctn += "<p><input type='submit' value = 'valider' onclick = 'creerMessageTopic()'></p>";
+					ctn += "</form>";				
+							
+				$("#corpsACC").html(ctn);
+				console.log(catId);
+		   }
+
+	);
+
+}
+
+function creerMessageTopic() {
+	$.get( "/forum/php/index.php", 
+		   { action: "creerMessageTopic"},
+		   //var ctn = "";
+	       function( data ) { // Fonction de callback en cas de succès
+				// Je mets en forme le contenu reçu
+				var ctn = "";
+					ctn += "<h3>Creation du premier message sur votre topic !</h3>";
+					ctn += "<form method='POST' action='message.php'>";
+					//ctn += "<p><input type='text' name=\"libelle_topic\" value='Votre titre ici'></p>";
+					ctn += "<p><textarea rows=20 COLS=60 name=\"contenu_message\">Votre message ici</textarea></p>";
+					ctn += "<p><input type='submit' value = 'valider'></p>";
+					ctn += "</form>";				
+							
+				$("#corpsACC").html(ctn);
+				console.log(catId);
+		   }
+
+	);
+
+}
 /*Fonction du onclick de l'history
-**	on supprime (splice) du tableau le numero correspondant a l'id du niveau auquel on veux revenir (par1)
-**	on supprime aussi le nom (dans le boutton) correspondant au niveau du retour (par2)
-**	dans certaines fonction il est necessaire de fournir un parametre (par3)
+**	on supprime (splice) du tableau le numero correspondant a l'id du niveau auquel on veux revenir
+**	on supprime aussi le nom (dans le boutton) correspondant au niveau du retour
+**	dans certaines fonction il est necessaire de fournir un parametre
 */
-function clic2(fonc, par1, par2, par3){
-	fonc(par3);
+function clic2(fonction, param1){
+	fonction(param1);
 	back.splice(back.length-1, back.length-1);
 	path.splice(path.length-1, path.length-1);	
 	history();
@@ -272,23 +288,28 @@ function clic2(fonc, par1, par2, par3){
 function history(){
 	
 	ctn ="";
+	chemin="";
 	$("#history").hide();
-	for (var i=0; i<back.length; i++){
+	for (var i=1; i<back.length; i++){
 	    switch(i){
-	    	case 0: level = 'clic2(afficheTheme, 1, 1)';
+	    	case 1: level = 'clic2(afficheTheme)';
 	    			break;
-	    	case 1: level = 'clic2(afficheCat, 2, 2, path[1])';
+	    	case 2: level = 'clic2(afficheCat, path[1])';
 	    			break;
-	    	case 2: level = 'clic2(afficheTopic, 4, 3, path[2])';
+	    	case 3: level = 'clic2(afficheTopic, path[2])';
 	    			break;
-	    	case 3: level = 'clic2(afficheMsg, 4, 4, path[3])';
+	    	case 4: level = 'clic2(afficheMsg, path[3])';
 	    			break;
+	    	default: break;
 	    }
 
-	    ctn += "<button class='bh' onclick='"+level+";'>"+back[i]+"</button>";
+	    //ctn += "<button class='bh' onclick='"+level+";'>"+back[i]+"</button>";
+	    ctn = "<button class='bh' onclick='"+level+";'>Retour</button>";
+	    ctn += "<span>"+back+"</span>";
 	}
-	//console.log(back);
-	//console.log(path);
+	console.log("i"+i);
+	console.log(back);
+	console.log(path);
 	setTimeout(function() { $("#history").show(); }, TIME);
 	$("#history").html(ctn);
 }
