@@ -1,0 +1,12 @@
+Blog - ImieSphère
+
+	Version 1.0 - 05/02/2015
+
+		- Ce blog utilise l'extension mod_rewrite du serveur Apache pour la réécriture d'url
+		- Seuls les utilisateurs ayant le statut d'administrateur peuvent rédiger des articles
+		- Implémentation d'un rédacteur d'article WYSIWYG
+		- Une feuille de style modifiable ou remplaçable (pour uniformiser avec le design du site) est fournie
+
+	Version 1.1 - 06/02/2015
+
+		- Ajout de commentaires dans le code
