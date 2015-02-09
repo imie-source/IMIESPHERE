@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="../css/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="../js/imiesphere.js"></script>
 		<script type="text/javascript" src="../js/forum.js"></script>
 		
 	</head>
@@ -34,9 +33,12 @@
 							Mail : contact-rennes@imie.fr</p>
 							
 						<h3>CONNEXION</h3>
-							<p><input type="text" placeholder="Votre Pseudo" name="pseudo"></p>
-							<p><input type="password" placeholder="Votre Mot De Passe" name="mdp"></p>
-							<input type="submit" value="Valider" name="valider" title="Se connecter au tchat !">
+							<form id="formulaireAuthentification" method="POST" action="<?= $self ?>">
+								<div><?= $message ?></div>
+								<p><input type="text" placeholder="Votre Pseudo" name="pseudo"></p>
+								<p><input type="password" placeholder="Votre Mot De Passe" name="mdp"></p>
+								<input type="submit" value="Valider" name="valider">
+							</form>	
 					</div>
 
 					<div id="menudroiteACC">
@@ -56,11 +58,12 @@
 					</div> 
 
 
-					<div id="corpsACC"> 
-
-
+					<div id="history"></div>
+					<div id="center">
+						<div id="loader">	</div>
+						<div id="titre"></div>			
+						<div id="corpsACC"> </div>
 					</div>
-
 					
 
 				</div> <!--/englobeurG -->

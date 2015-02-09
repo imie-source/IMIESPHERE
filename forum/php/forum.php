@@ -47,12 +47,15 @@ function getCat($id_theme){
 }
 
 
+/* Recuperer les données dans la bdd pour les topics */
 function getTopic($id_categorie){
 	$dbConf = chargeConfiguration();
 	$pdo = cnxBDD($dbConf);
 
-	$req = "SELECT libelle_topic, id_topic, pseudo, id_categorie, crea_topic, id_utilisateur ";
-	$req .= "FROM topic_forum NATURAL JOIN utilisateur WHERE id_categorie = :id_categorie";
+	// Requete pour recuperer les données de la base
+	$req = "SELECT libelle_topic, id_topic, pseudo, id_categorie, crea_topic, id_utilisateur, ";
+	$req .= "(SELECT COUNT(id_msg_forum)  FROM message_forum WHERE message_forum.id_topic= topic_forum.id_topic) AS nbmsg ";
+	$req .= "FROM topic_forum NATURAL JOIN utilisateur WHERE id_categorie = :id_categorie ORDER BY id_topic DESC ";
 
 	$pdoStmt = $pdo->prepare($req);
 	$pdoStmt->bindParam(':id_categorie', $id_categorie);
@@ -70,10 +73,13 @@ function getTopic($id_categorie){
 		return $res;
 }
 
+
+/* Recuperer les données dans la bdd pour les messages */
 function getMsg($id_topic){
 	$dbConf = chargeConfiguration();
 	$pdo = cnxBDD($dbConf);
 
+	// Requete pour recuperer les données dans la bdd
 	$req = "SELECT content_msg_forum, id_msg_forum, id_topic, pseudo, id_utilisateur, date_msg_forum ";
 	$req .= "FROM message_forum NATURAL JOIN utilisateur WHERE id_topic = :id_topic";
 
@@ -105,21 +111,21 @@ if ($action == "listeTheme") {
 	$liste = getCat($_GET["id_theme"]);
 	$res = "";
 	foreach($liste as $cat) {
-		$res .= $cat["libelle_categorie"] . ";" . $cat["id_categorie"]  . "\n";
+		$res .= ucfirst($cat["libelle_categorie"]) . ";" . $cat["id_categorie"]  . "\n";
 	}	
 	die($res);
 }else if($action == "listeTopic"){
 	$liste = getTopic($_GET["id_categorie"]);
 	$res = "";
 	foreach($liste as $topic) {
-		$res .= $topic["libelle_topic"] . ";" . $topic["id_topic"] . ";" . ucfirst($topic["pseudo"]) . ";" . $topic["crea_topic"] ."\n";
+		$res .= $topic["libelle_topic"] . ";" . $topic["id_topic"] . ";" . ucfirst($topic["pseudo"]) . ";" . $topic["crea_topic"] . ";" . $topic["nbmsg"] . "\n";
 	}	
 	die($res);
 }else if($action == "listeMsg"){
 	$liste = getMsg($_GET["id_topic"]);
 	$res = "";
 	foreach($liste as $msg) {
-		$res .= $msg["content_msg_forum"] . ";" . $msg["id_msg_forum"] . ";" . ucfirst($msg["pseudo"]) . ";" . $msg["date_msg_forum"] ."\n";
+		$res .= $msg["content_msg_forum"] . ";" . $msg["id_msg_forum"] . ";" . ucfirst($msg["pseudo"]) . ";" . $msg["date_msg_forum"] . ";" . $msg["id_topic"] . "\n";
 	}	
 	die($res);
 }else{
