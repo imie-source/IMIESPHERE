@@ -59,6 +59,7 @@ function afficheCat(id_theme) {
 	$("#loader").show();
 	$("#corpsACC").hide();
 	$("#titre").hide();
+	$("#topic").hide();
 	//console.log(path);
 	// Utilisation de la méthode get de jQuery
 	$.get( "/forum/php/index.php", 
@@ -90,12 +91,13 @@ function afficheCat(id_theme) {
 	);
 }
 
-
+ 
 function afficheTopic(id_categorie) {
 	$("#loader").html('<img src="../html/loader.gif">');
 	$("#loader").show();
 	$("#corpsACC").hide();
 	$("#titre").hide();
+	$("#topic").show();
 	// Utilisation de la méthode get de jQuery
 	$.get( "/forum/php/index.php", 
 		   { action: "listeTopic", 
@@ -103,8 +105,9 @@ function afficheTopic(id_categorie) {
 	       function( data ) { // Fonction de callback en cas de succès
 				// Je mets en forme le contenu reçu
 				var ctn = "";
+				var tp = "";
 				var tabTops = data.split("\n");
-				ctn += "<h3><input type='submit" + "'value = \"+\" onclick=\"creerTopic()\"> Creation de topic</h3>";					
+				tp += "<h4><input type='submit" + "'value = \"+\" onclick=\"creerTopic()\"> Creation de topic</h4>";					
 					
 				for(var i = 0; i < tabTops.length; i++) {
 					tabTops[i] = tabTops[i].trim();
@@ -149,6 +152,7 @@ function afficheTopic(id_categorie) {
 				setTimeout(function() { $("#corpsACC").show(); }, TIME);
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
+				$("#topic").html(tp);
 				$("#titre").html(back[2]);
 				console.log(page);
 		   }
@@ -160,6 +164,7 @@ function afficheMsg(id_topic) {
 	$("#loader").show();
 	$("#corpsACC").hide();
 	$("#titre").hide();
+	$("#topic").hide();
 	// Utilisation de la méthode get de jQuery
 	$.get( "/forum/php/index.php", 
 		   { action: "listeMsg", 
@@ -232,15 +237,14 @@ function creerTopic() {
 	       function( data ) { // Fonction de callback en cas de succès
 				// Je mets en forme le contenu reçu
 				var ctn = "";
-					ctn += "<h3>Creation de topic !</h3>";
-					ctn += "<form method='POST' action='topic.php'>";
+					ctn += "<h4>Creation de topic !</h4>";
+					ctn += "<form id='formulaireTopic' method='POST' action='index.php' >";
 					ctn += "<p><input type='text' name=\"libelle_topic\" value='Votre titre ici'></p>";
 					//ctn += "<p><textarea rows=20 COLS=60 name=\"contenu_message\">Votre message ici</textarea></p>";
 					ctn += "<p><input type='submit' value = 'valider' onclick = 'creerMessageTopic()'></p>";
 					ctn += "</form>";				
 							
-				$("#corpsACC").html(ctn);
-				console.log(catId);
+				$("#topic").html(ctn);
 		   }
 
 	);

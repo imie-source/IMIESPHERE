@@ -49,6 +49,7 @@ function getCat($id_theme){
 
 /* Recuperer les données dans la bdd pour les topics */
 function getTopic($id_categorie){
+	$self = "?action=ftopic";
 	$dbConf = chargeConfiguration();
 	$pdo = cnxBDD($dbConf);
 
@@ -99,6 +100,29 @@ function getMsg($id_topic){
 		return $res;
 }
 
+function createTopic($libelle_topic, $id_utilisateur, $id_categorie) {
+		var_dump($_POST["libelle_topic"]); 
+		$dbConf = chargeConfiguration();
+		$pdo = cnxBDD($dbConf);
+
+		$req = "INSERT INTO topic_forum (libelle_topic, crea_topic, id_utilisateur, id_categorie) " .
+			   "VALUES (:libelle, NOW(), :utilisateur, :categorie);";
+		$pdoStmt = $pdo->prepare($req);
+
+		$pdoStmt->bindParam(':libelle', $libelle_topic);
+		$pdoStmt->bindParam(':utilisateur', $id_utilisateur);
+		$pdoStmt->bindParam(':categorie', $id_categorie);		
+
+		try {
+			$pdoStmt->execute();
+		} catch(PDOException $e) {
+			die($e->getCode() . " / " . $e->getMessage());
+		}	
+			$pdoStmt = NULL;
+			$pdo = NULL; 				
+			
+}
+
 
 if ($action == "listeTheme") {
 	$liste = getThemes();
@@ -119,7 +143,7 @@ if ($action == "listeTheme") {
 	$res = "";
 	foreach($liste as $topic) {
 		$res .= $topic["libelle_topic"] . ";" . $topic["id_topic"] . ";" . ucfirst($topic["pseudo"]) . ";" . $topic["crea_topic"] . ";" . $topic["nbmsg"] . "\n";
-	}	
+	}
 	die($res);
 }else if($action == "listeMsg"){
 	$liste = getMsg($_GET["id_topic"]);
@@ -128,6 +152,9 @@ if ($action == "listeTheme") {
 		$res .= $msg["content_msg_forum"] . ";" . $msg["id_msg_forum"] . ";" . ucfirst($msg["pseudo"]) . ";" . $msg["date_msg_forum"] . ";" . $msg["id_topic"] . "\n";
 	}	
 	die($res);
+}else if(isset($_POST["libelle_topic"])){			
+			$result = createTopic($_POST["libelle_topic"], $_SESSION["id_utilisateur"], $_GET["id_categorie"]);
+			die($result);
 }else{
 	include(__DIR__ . '/../html/accueil.html');
 }

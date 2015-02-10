@@ -20,10 +20,7 @@ function createTopic($libelle_topic, $id_utilisateur, $id_categorie) {
 
 		$pdoStmt->bindParam(':libelle', $libelle_topic);
 		$pdoStmt->bindParam(':utilisateur', $id_utilisateur);
-		$pdoStmt->bindParam(':categorie', $id_categorie);
-		
-		
-		
+		$pdoStmt->bindParam(':categorie', $id_categorie);		
 
 		try {
 			$pdoStmt->execute();
@@ -32,10 +29,8 @@ function createTopic($libelle_topic, $id_utilisateur, $id_categorie) {
 			
 			$pdoStmt = NULL;
 			$pdo = NULL; 
-			//return CRE_TOPIC_OK;
-				
-		}
-	
+			//return CRE_TOPIC_OK;				
+		}	
 }
 
 
