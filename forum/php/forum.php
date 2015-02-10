@@ -101,7 +101,6 @@ function getMsg($id_topic){
 }
 
 function createTopic($libelle_topic, $id_utilisateur, $id_categorie) {
-		var_dump($_POST["libelle_topic"]); 
 		$dbConf = chargeConfiguration();
 		$pdo = cnxBDD($dbConf);
 
@@ -121,6 +120,32 @@ function createTopic($libelle_topic, $id_utilisateur, $id_categorie) {
 			$pdoStmt = NULL;
 			$pdo = NULL; 				
 			
+}
+
+function createMessage($content_msg_forum, $id_utilisateur, $id_topic) {
+		$dbConf = chargeConfiguration();
+		$pdo = cnxBDD($dbConf);
+
+		$req = "INSERT INTO message_forum (date_msg_forum, content_msg_forum, id_utilisateur, id_topic) " .
+				"VALUES (NOW(), :contenu, :utilisateur, :topic);";
+		$pdoStmt = $pdo->prepare($req);
+
+		
+		
+		$pdoStmt->bindParam(':contenu', $content_msg_forum);
+		$pdoStmt->bindParam(':utilisateur', $id_utilisateur);
+		$pdoStmt->bindParam(':topic', $id_topic);
+
+		try {
+			$pdoStmt->execute();
+		} catch(PDOException $e) {
+			
+			die($e->getCode() . " / " . $e->getMessage());
+		}	
+		
+		$pdoStmt = NULL;
+		$pdo = NULL; 
+		 
 }
 
 
@@ -148,14 +173,18 @@ if ($action == "listeTheme") {
 	die($res);
 }else if($action == "listeMsg"){
 	$liste = getMsg($_GET["id_topic"]);
+	$_SESSION["topicEnCours"] = $_GET["id_topic"];
 	$res = "";
 	foreach($liste as $msg) {
 		$res .= $msg["content_msg_forum"] . ";" . $msg["id_msg_forum"] . ";" . ucfirst($msg["pseudo"]) . ";" . $msg["date_msg_forum"] . ";" . $msg["id_topic"] . "\n";
 	}	
 	die($res);
 }else if(isset($_POST["libelle_topic"])){			
-		$result = createTopic($_POST["libelle_topic"], $_SESSION["id_utilisateur"], $_SESSION["catEnCours"]);
-		die($result);
+	$result = createTopic($_POST["libelle_topic"], $_SESSION["id_utilisateur"], $_SESSION["catEnCours"]);
+	header('Location: ./index.php');
+}else if(isset($_POST["content_msg_forum"])){			
+	$resMsg = createMessage($_POST["content_msg_forum"], $_SESSION["id_utilisateur"], $_SESSION["topicEnCours"]);
+	header('Location: ./index.php');
 }else{
 	include(__DIR__ . '/../html/accueil.html');
 }

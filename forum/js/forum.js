@@ -159,6 +159,73 @@ function afficheTopic(id_categorie) {
 	);
 }
 
+function afficheTopic2(id_categorie) {
+	$("#loader").html('<img src="../html/loader.gif">');
+	$("#loader").show();
+	$("#corpsACC").hide();
+	$("#titre").hide();
+	$("#topic").show();
+	// Utilisation de la méthode get de jQuery
+	$.get( "/forum/php/index.php", 
+		   { action: "listeTopic", 
+			id_categorie: id_categorie },
+	       function( data ) { // Fonction de callback en cas de succès
+				// Je mets en forme le contenu reçu
+				var ctn = "";
+				var tp = "";
+				var tabTops = data.split("\n");
+				tp += "<h4><input type='submit" + "'value = \"+\" onclick=\"creerTopic()\"> Creation de topic</h4>";					
+					
+				for(var i = 0; i < tabTops.length; i++) {
+					tabTops[i] = tabTops[i].trim();
+					if (tabTops[i] != "") {
+						var tabTop = tabTops[i].split(";");
+						
+						// Nom du topic, champ 1
+						var topLib = tabTop[0];
+						// Id du topic, champ 2
+						var topId = tabTop[1];
+						// Id de l'utilisateur, champ 3
+						var topUserID = tabTop[2];
+						// Date du topic, champ 4
+						var topDate = tabTop[3];
+						// Messages, champ 5
+						var topMsg = tabTop[4];
+
+						if(topMsg=="")
+							topMsg=0;
+						
+						// J'affiche les topics avec leur nom, la date, l'utilisateur.						
+						ctn += "<table>";
+       					ctn +=			"<thead>";
+          				ctn +=				"<tr>";
+            			ctn +=					"<th><div class='btn' onclick=\"clic(afficheMsg, '"+topLib+"', '"+topId+"');\">" + topLib + "</div></th>";
+        				ctn +=				"</tr>";
+        				ctn +=			"</thead>";
+        				ctn +=			"<tbody>";
+          				ctn +=				"<tr class='light'>";
+            			ctn +=					"<td>" + topMsg + " messages dans ce topic.</td>";
+          				ctn +=				"</tr>";
+        				ctn +=				"<tr class='dark'>";
+            			ctn +=				"<td>" + topUserID + " a publié le " + topDate + "</td>";
+       					ctn +=			    "</tr>";
+		      			ctn +=			"</tbody>";
+      					ctn += "</table>";
+					}
+										
+				}
+				// Je mets à jour le contenu du div d'id "messages"
+				setTimeout(function() { $("#loader").hide(); }, TIME);
+				setTimeout(function() { $("#corpsACC").show(); }, TIME);
+				setTimeout(function() { $("#titre").show(); }, TIME);
+				$("#corpsACC").html(ctn);
+				$("#topic").html(tp);
+				$("#titre").html(back[2]);
+				console.log(page);
+		   }
+	);
+}
+
 function afficheMsg(id_topic) {
 	$("#loader").html('<img src="../html/loader.gif">');
 	$("#loader").show();
@@ -219,6 +286,12 @@ function afficheMsg(id_topic) {
 					}
 										
 				}
+				ctn += "Repondre";
+				ctn += "<form method = 'POST' action = 'index.php'>";
+				ctn += "<p><textarea name=\"content_msg_forum\" rows='10' COLS='50'>Tapez votre message ici</textarea></p>";
+				//ctn += "<p><input type='text' name=\"content_msg_forum\" value='Votre titre ici'></p>";
+      			ctn += "<p><input type='submit' value = 'Envoyer Message'></p>";
+      			ctn += "</form>";
 				// Je mets à jour le contenu du div d'id "messages"
 				setTimeout(function() { $("#loader").hide(); }, TIME);
 				setTimeout(function() { $("#corpsACC").show(); }, TIME);
@@ -241,7 +314,7 @@ function creerTopic() {
 					ctn += "<form id='formulaireTopic' method='POST' action='index.php' >";
 					ctn += "<p><input type='text' name=\"libelle_topic\" value='Votre titre ici'></p>";
 					//ctn += "<p><textarea rows=20 COLS=60 name=\"contenu_message\">Votre message ici</textarea></p>";
-					ctn += "<p><input type='submit' value = 'valider' onclick = 'creerMessageTopic()'></p>";
+					ctn += "<p><input type='submit' value = 'valider' onclick=\"afficheMsg(path[3])\"></p>";
 					ctn += "</form>";				
 							
 				$("#topic").html(ctn);
@@ -251,27 +324,6 @@ function creerTopic() {
 
 }
 
-function creerMessageTopic() {
-	$.get( "/forum/php/index.php", 
-		   { action: "creerMessageTopic"},
-		   //var ctn = "";
-	       function( data ) { // Fonction de callback en cas de succès
-				// Je mets en forme le contenu reçu
-				var ctn = "";
-					ctn += "<h3>Creation du premier message sur votre topic !</h3>";
-					ctn += "<form method='POST' action='message.php'>";
-					//ctn += "<p><input type='text' name=\"libelle_topic\" value='Votre titre ici'></p>";
-					ctn += "<p><textarea rows=20 COLS=60 name=\"contenu_message\">Votre message ici</textarea></p>";
-					ctn += "<p><input type='submit' value = 'valider'></p>";
-					ctn += "</form>";				
-							
-				$("#corpsACC").html(ctn);
-				console.log(catId);
-		   }
-
-	);
-
-}
 /*Fonction du onclick de l'history
 **	on supprime (splice) du tableau le numero correspondant a l'id du niveau auquel on veux revenir
 **	on supprime aussi le nom (dans le boutton) correspondant au niveau du retour
