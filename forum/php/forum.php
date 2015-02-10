@@ -140,6 +140,7 @@ if ($action == "listeTheme") {
 	die($res);
 }else if($action == "listeTopic"){
 	$liste = getTopic($_GET["id_categorie"]);
+	$_SESSION["catEnCours"] = $_GET["id_categorie"];
 	$res = "";
 	foreach($liste as $topic) {
 		$res .= $topic["libelle_topic"] . ";" . $topic["id_topic"] . ";" . ucfirst($topic["pseudo"]) . ";" . $topic["crea_topic"] . ";" . $topic["nbmsg"] . "\n";
@@ -153,8 +154,8 @@ if ($action == "listeTheme") {
 	}	
 	die($res);
 }else if(isset($_POST["libelle_topic"])){			
-			$result = createTopic($_POST["libelle_topic"], $_SESSION["id_utilisateur"], $_GET["id_categorie"]);
-			die($result);
+		$result = createTopic($_POST["libelle_topic"], $_SESSION["id_utilisateur"], $_SESSION["catEnCours"]);
+		die($result);
 }else{
 	include(__DIR__ . '/../html/accueil.html');
 }

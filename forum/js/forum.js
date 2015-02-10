@@ -1,5 +1,5 @@
 
-var back = ['Themes'];
+var back = ['Forum'];
 var path = ['0'];
 var TIME = 500;
 var page = 1;
@@ -47,7 +47,7 @@ function afficheTheme() {
 				setTimeout(function() { $("#corpsACC").show(); }, TIME);
 				setTimeout(function() { $("#titre").show(); }, TIME);
 				$("#corpsACC").html(ctn);
-				$("#titre").html('THEMES');
+				$("#titre").html('FORUM');
 				console.log(page);
 		   }
 		 
@@ -294,7 +294,7 @@ function history(){
 	ctn ="";
 	chemin="";
 	$("#history").hide();
-	for (var i=1; i<back.length; i++){
+	for (var i=1; i<path.length; i++){
 	    switch(i){
 	    	case 1: level = 'clic2(afficheTheme)';
 	    			break;
@@ -309,7 +309,9 @@ function history(){
 
 	    //ctn += "<button class='bh' onclick='"+level+";'>"+back[i]+"</button>";
 	    ctn = "<button class='bh' onclick='"+level+";'>Retour</button>";
-	    ctn += "<span>"+back+"</span>";
+	    for (var j=0; j<back.length; j++){
+	    	ctn += "<span>"+back[j]+" \>\> </span>";
+	    }
 	}
 	console.log("i"+i);
 	console.log(back);

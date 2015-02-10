@@ -36,6 +36,7 @@ function authentification($pseudo, $motDePasse) {
 			// Soit les mots de passe correspondent (leur empreinte)
 			if ($row["password"] == $password) {
 				$_SESSION["user_pseudo"] = $_POST["pseudo"];
+				$_SESSION["id_utilisateur"] = $row["id_utilisateur"];
 				return AUTH_OK;
 			}	
 			else // les mots de passe ne correspondent pas (leur empreinte)
