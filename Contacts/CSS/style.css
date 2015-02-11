@@ -1,10 +1,17 @@
+/*
+ *
+ *	CSS POUR LA PAGE CONTACT
+ *
+ */
 
+/* Style pour les label dans champs */
 .label {
 	font-family: 'Century Gothic', cursive;
 	padding-right: 15px;
 	color: black;
 }
 
+/* Style pour le formulaire de contact */
 .form {
 	padding-right: 15px;
 	margin-top: 10px;
@@ -12,6 +19,7 @@
 	text-align: left;
 }
 
+/* Style pour le div contenant le formulaire */
 .formulaires {
 	margin: auto;
 	margin-bottom: 50px;
@@ -21,6 +29,7 @@
 	margin-right: 75px;
 }
 
+/* Style pour les champs */
 .field {
 	margin-bottom: 7px;
 	margin-top: 5px;
@@ -28,6 +37,7 @@
 	width: 365px;
 }
 
+/* Style pour les boutons */
 .bouton {
 	margin-top: 8px;
 	width: 100px;
@@ -39,59 +49,42 @@
 	font-family: 'Century Gothic', cursive;
 }
 
+/* Style spécial pour la zone de saisie du message */
 #text {
 	outline: none;
 	resize: none;
 }
 
+/* Style spécial pour le champ d'objet */
 #objet {
 	width: 365px;
 }
 
-#msg {
-	font-family: 'Century Gothic', cursive;
-	padding-right: 225px;
-}
-
+/* Style pour la Google Map */
 #map {
 	width: 600px;
 	height: 450px;
 }
 
+/* Style pour la div contenant la map et la div contenant la Google Map */
 #cmap, #formulaire {
 	display: inline-block;
 	
 }
 
-#send_ok {
-	padding-left: 10px;
-	padding-right: 10px;
-	color: #444;
-	display: inline-block;
-	margin-top: 250px;
-}
-
-#infos {
-	border-style: solid;
-	border-color: #777;
-	border-radius: 10px;
-	float: right;
-	width: 250px;
-}
-
+/* Style pour la div contenant les informations de l'association */
 #info {
 	font-family: 'Century Gothic', cursive;
 	padding-left: 15px;
 	text-align: left;
 }
 
-#err {
-	color: red;
+/* Style pour la div contenant le formulaire et la map */
+#all {
+	text-align: center;
 }
 
-#thx {
-	color: green;
-}
+/* FIN DU CSS POUR LA PAGE CONTACT */
 
 /*
  *
@@ -120,18 +113,6 @@ body {
 	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
 	background: linear-gradient(135deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-	font-family: 'Roboto';
-	color:black;
-	background-attachment:fixed;
-}
-
-.alternative {
-	margin : 0;
-	background-image: url(../img/bg5.png);
-	background-
-	font-family: 'Roboto';
-	color:black;
-	background-attachment:fixed;
 	font-family: 'Roboto';
 	color:black;
 	background-attachment:fixed;
@@ -280,7 +261,5 @@ a:hover, a:visited, a:link, a:active {
 	overflow: hidden;
 }
 
-#all {
-	text-align: center;
-}
+
 /* • • • • • • • • • • • • • • • F I N • • • • • • • • • • • • • • • */

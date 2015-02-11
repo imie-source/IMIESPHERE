@@ -8,13 +8,52 @@
 	 * @since 05/01/2015
 	 */
 
+	// On démarre une session pour l'utilisation des variables de sessions
+	session_start();
+
 	// Définition des constantes
-	define('ENVOI_KO', 1);
-	define('ENVOI_OK', 2);	
+	define('ENVOI_OK', 1);
+	define('ENVOI_KO', 2);	
 
 	require_once ("bdd_inc.php");
-	require_once (__DIR__ . "/../../lib/PHPMailer/class.phpmailer.php");
+	include_once (__DIR__ . "/../../lib/PHPMailer/class.phpmailer.php");
 	require_once (__DIR__ . "/../../lib/PHPMailer/class.smtp.php");
+
+	/**
+	 * Fonction qui va chercher les infos de l'association en base de données
+	 * @return void
+	 */
+	function getInfos() {
+		
+		// Chargement de la configuration
+		$dbConf = chargeConfiguration();
+		// Connexion à la base de données
+		$dbLink = cnxBDD($dbConf);
+
+		if ($dbLink instanceof PDO) {
+
+			$sql = "SELECT mail_imie, tel_imie, adresse1_imie, adresse2_imie, adresse3_imie, adresse4_imie FROM info;";
+		
+			$req = $dbLink -> prepare($sql);
+
+			$req -> execute();
+
+			if ($data = $req -> fetch(PDO::FETCH_ASSOC)) {
+				
+				$_SESSION['mail'] = $data["mail_imie"];
+				$_SESSION['tel'] = $data["tel_imie"];
+				$_SESSION['rue'] = $data["adresse1_imie"];
+				$_SESSION['campus'] = $data["adresse2_imie"];
+				$_SESSION['build'] = $data["adresse3_imie"];
+				$_SESSION['post'] = $data ["adresse4_imie"];
+			}
+		}
+
+		else {
+
+			echo "Message d'erreur : " . $dbLink;
+		}
+	}
 
 	/**
 	 * Fonction qui configure PHPMailer et envoie le mail
@@ -23,63 +62,94 @@
 	 * @return Vrai si le mail a été envoyé, Faux si il y a eu une erreur
 	 */
 	function mailPHPMailer($message) {
+
+		// On définit le bon fuseau horaire
+		date_default_timezone_set('GMT+1');
 		
-		// On crée une nouvelle instance de la classe
-		$mail = new PHPMailer();
+		// On essaye de faire la configuration
+		try {
 
-		// On active SMTP
-		$mail->IsSMTP();
+			// On crée une nouvelle instance de la classe
+			$mail = new PHPMailer();
 
-		// On active la fonction de débugage de SMTP
-		$mail->STMPDebug = 1;
+			// On active SMTP
+			$mail->IsSMTP();
 
-		// On passe à active l'authentification SMTP
-		$mail->SMTPAuth = true;
+			// On active la fonction de débugage de SMTP
+			$mail->STMPDebug = 1;
 
-		// Gmail nécéssite un transfert sécurisé, on définit donc un système de cryptage à utiliser
-		$mail->SMTPSecure = 'ssl';
+			// On active l'authentification SMTP
+			$mail->SMTPAuth = true;
 
-		// On définit le nom d'hôte du serveur mail ici Gmail
-		$mail->Host = 'smtp.gmail.com';
+			// Gmail nécéssite un transfert sécurisé, on définit donc un système de cryptage à utiliser
+			// 
+			$mail->SMTPSecure = 'ssl';
 
-		// On définit le numéro de port SMTP
-		$mail->Port = 587;
+			// On définit le nom d'hôte du serveur mail ici Gmail
+			$mail->Host = 'smtp.gmail.com';
 
-		// On définit le niveau d'encodage à UTF-8 pour gérer les caractères spéciaux
-		$mail->CharSet = "UTF-8";
+			// On définit le numéro de port SMTP
+			$mail->Port = 25;
 
-		// On définit le nom d'utilisateur pour l'authentification SMTP
-		// Ici il est définit dans un autre fichier par sécurité
-		$mail->Username = USERNAME;
+			// On définit le niveau d'encodage à UTF-8 pour gérer les caractères spéciaux
+			$mail->CharSet = "UTF-8";
 
-		// On définit le mot de passe pour l'authentification SMTP
-		// Ici il est définit dans un autre fichier par sécurité
-		$mail->Password = PASSWORD;
+			// On définit le nom d'utilisateur pour l'authentification SMTP
+			// Ici il est définit dans un autre fichier par sécurité
+			$mail->Username = USERNAME;
 
-		// On définit par qui le message a été envoyé
-		$mail->SetFrom($_POST["emailaddress"], $_POST["nom"]);
+			// On définit le mot de passe pour l'authentification SMTP
+			// Ici il est définit dans un autre fichier par sécurité
+			$mail->Password = PASSWORD;
 
-		// On définit à qui le message est envoyé
-		$mail->AddAddress(USERNAME, "IMIE Sph&egrave;re");
+			// On définit par qui le message a été envoyé
+			$mail->SetFrom($_POST["emailaddress"], $_POST["nom"]);
 
-		// On définit le sujet du message
-		$mail->Subject = $_POST["objet"];
+			// On définit à qui le message est envoyé
+			$mail->AddAddress(USERNAME, "IMIE Sph&egrave;re");
 
-		// On définit le message au format HTML
-		$mail->MsgHTML($message);
+			// On définit le sujet du message
+			$mail->Subject = $_POST["objet"];
 
-		// On envoie le message et on check s'il y a eu des erreurs
-		if (!$mail->Send()) {
+			// On définit le format du message à HTML
+			$mail->IsHTML(true);
 
-			// Si l'envoie du mail se passe mal on retourne la constante d'erreur
-			echo "Erreur pendant l'envoie du message";
-			echo "Erreur : " . $mail->ErrorInfo;
+			// On définit un limite de charactères pour le message
+			$mail->WordWrap = 250;
+
+			// On définit le message au format HTML
+			$mail->MsgHTML($message);
+
+			// On envoie le message et on check s'il y a eu des erreurs
+			if (!$mail->Send()) {
+
+				// Si l'envoie du mail se passe mal on retourne l'erreur
+				echo "Erreur pendant l'envoie du message : " . $mail->ErrorInfo;
+				die();
+
+				// Si l'envoie du mail se passe mal on retourne la constante d'erreur
+				//return ENVOI_KO;
+			}
+
+			else {
+
+				// Sinon on retourne la constante OK
+				return ENVOI_OK;
+			}
 		}
 
-		else {
+		// On "attrape les erreurs de la class PHPMailer"
+		catch (phpmailerException $pme) {
 
-			// Sinon on retourne la constante OK
-			return ENVOI_OK;
+			// On affiche l'erreur
+			echo $pme -> errorMessage();
+		}
+
+		// On "attrape toutes autres erreurs possibles"
+		catch (Exception $e) {
+
+			// On affiche l'erreur
+			echo $e -> getMessage();
 		}
 	}
 
@@ -172,12 +242,15 @@
 				switch ($send) {
 
 					case ENVOI_OK:
-						include (__DIR__ . "/../HTML/envoie_ok.html");
+						include_once (__DIR__ . "/../HTML/envoie_ok.html");
 						break;
 
 					case ENVOI_KO:
-						include (__DIR__ . "/../HTML/envoie_ko.html");
+						include_once (__DIR__ . "/../HTML/envoie_ko.html");
 						break;
+					default:
+						include_once (__DIR__ . "/../HTML/envoie_ko.html");
+						die();
 				}
 			}
 
@@ -189,13 +262,14 @@
 
 		else {
 
-			include (__DIR__ . "/../HTML/envoie_ko.html");
+			include_once (__DIR__ . "/../HTML/envoie_ko.html");
 		}
 	}
 
 	// Sinon on affiche le formulaire
 	else {
 
-		require (__DIR__ . "/../HTML/contact.html");
+		getInfos();
+		require_once (__DIR__ . "/../HTML/contact.html");
 	}
 ?>
