@@ -259,7 +259,7 @@ a:hover, a:visited, a:link, a:active {
 /*		[CONTACT]												*/
 /* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
 
-/*- Partie gauche du corps (Connexion, etc...) -*/
+/*- Partie gauche du corps -*/
 #menugaucheACC {
 	float : left;
 	width : 20%;
@@ -269,7 +269,7 @@ a:hover, a:visited, a:link, a:active {
 	background : none;
 }
 
-/*- Partie droite du corps (Calenderier, etc...) -*/
+/*- Partie droite du corps -*/
 #menudroiteACC {
 	float : right;
 	width : 20%;

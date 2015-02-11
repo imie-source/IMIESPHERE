@@ -30,11 +30,14 @@
 		// On active SMTP
 		$mail->IsSMTP();
 
+		// On active la fonction de débugage de SMTP
+		$mail->STMPDebug = 1;
+
 		// On passe à active l'authentification SMTP
 		$mail->SMTPAuth = true;
 
 		// Gmail nécéssite un transfert sécurisé, on définit donc un système de cryptage à utiliser
-		$mail->SMTPSecure = 'tls';
+		$mail->SMTPSecure = 'ssl';
 
 		// On définit le nom d'hôte du serveur mail ici Gmail
 		$mail->Host = 'smtp.gmail.com';
@@ -69,7 +72,8 @@
 		if (!$mail->Send()) {
 
 			// Si l'envoie du mail se passe mal on retourne la constante d'erreur
-			return ENVOI_KO;
+			echo "Erreur pendant l'envoie du message";
+			echo "Erreur : " . $mail->ErrorInfo;
 		}
 
 		else {
@@ -178,7 +182,6 @@
 			}
 
 			else {
-
 				echo "L'un des champs est vide";
 				die();
 			}
