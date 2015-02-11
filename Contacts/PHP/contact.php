@@ -89,7 +89,7 @@
 			$mail->Host = 'smtp.gmail.com';
 
 			// On définit le numéro de port SMTP
-			$mail->Port = 25;
+			$mail->Port = 587;
 
 			// On définit le niveau d'encodage à UTF-8 pour gérer les caractères spéciaux
 			$mail->CharSet = "UTF-8";
