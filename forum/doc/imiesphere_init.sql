@@ -40,18 +40,4 @@ INSERT INTO categorie_forum (libelle_categorie, date_categorie, id_theme, id_uti
 															('FPS', now(), 4, 1),
 															('MMO', now(), 4, 1),
 															('loisirs / hobbies', now(), 5, 1),
-															('Forum Bin', now(), 5, 1);
-
-INSERT INTO topic_forum (libelle_topic, crea_topic, id_categorie, id_utilisateur) VALUES
-															('Finch', now(), 1, 1),
-															('Print', now(), 1, 1),
-															('Hello World !', now(), 1, 1),
-															('Mastermind', now(), 2, 1),
-															('Ubuntu', now(), 4, 1),
-															('Protocoles Reseaux', now(), 5, 1);
-
-INSERT INTO message_forum (content_msg_forum, date_msg_forum, id_topic, id_utilisateur) VALUES
-															('Bug led AARRRRRRGGGG', now(), 1, 1),
-															('LOOSER', now(), 1, 1),
-															('Les couleurs sont bizarres', now(), 4, 1),
-															('Je me presente je mapelle henri...', now(), 5, 1);															
+															('Forum Bin', now(), 5, 1);										

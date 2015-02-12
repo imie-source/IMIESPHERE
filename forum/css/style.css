@@ -425,6 +425,7 @@ a:hover, a:visited, a:link, a:active
 	padding: 10px;
 	margin-top: 15px;
 	margin-right: 10px;
+	cursor: pointer;
 }
 
 #loader{
@@ -641,7 +642,8 @@ table thead th{
 	border-collapse:collapse; 
 	text-align:center; 
 	table-layout:auto; 
-	vertical-align:middle;}
+	vertical-align:middle;
+	cursor: pointer;}
 table tbody td{
 	vertical-align:top; 
 	border-collapse:collapse; 
