@@ -12,8 +12,7 @@ INSERT INTO profil (id_profil, libelle) VALUES (1, 'Administrateur'),
 												(3, 'Utilisateur'),
 												(10, 'Visiteur');
 
-INSERT INTO Utilisateur (pseudo, nom_utilisateur, prenom_utilisateur, password, email, id_profil) VALUES 
-															('pierre', 'bourven', 'pierre', MD5('pierre'), 'pierre@imie-rennes.fr', 3 ),
+INSERT INTO utilisateur (pseudo, nom_utilisateur, prenom_utilisateur, password, email, id_profil) VALUES 
 															('serge', 'coude', 'serge', MD5('coucou'), 'serge@imie.fr', 1),
 															('denis', 'le gourierec', 'denis', MD5('toto'), 'denis@imie.fr', 3),
 															('celia', 'renouf', 'celia', MD5('titi'), 'celia@imie.fr', 3),
@@ -33,3 +32,5 @@ INSERT INTO categorie_forum (libelle_categorie, date_categorie, id_theme, id_uti
 															('Protocoles Reseaux', now(), 2, 1),
 															('Soirees', now(), 3, 1),
 															('Forum Bin', now(), 3, 1);
+
+INSERT INTO informations VALUES (default, "imiesphere@gmail.com", "02 23 44 69 00", "Rue Pierre de Maupertuis", "Campus de Ker Lann", "Immeuble Alliance", "35170 Bruz");

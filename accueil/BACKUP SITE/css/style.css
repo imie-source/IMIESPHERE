@@ -1,0 +1,518 @@
+/* 
+ *+--------------------------------------------------------------+
+ *| • STYLES CSS POUR IMIESPHERE (PROJET WEB)                    |
+ *+--------------------------------------------------------------+
+ */
+
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+@font-face {font-family: 'Intro';	src: url('fonts/Intro.otf');}
+
+body {
+	margin : 0;
+
+	background: rgb(59,103,158); /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  rgba(59,103,158,1) 0%, rgba(43,136,217,1) 50%, rgba(43,136,217,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(59,103,158,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+	background: linear-gradient(135deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	font-family: 'Roboto';
+	color:black;
+	background-attachment:fixed;
+}
+
+h1, h2, h3 {
+	font-family: 'Century Gothic', cursive;
+	font-weight: normal;
+
+	border: 3px solid #5C5C58;
+	background-color:#5C5C58; /* COLOR 5 */
+	color:white;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 4px 0px 0px #41413F;
+	-moz-box-shadow: 0px 4px 0px 0px #41413F;
+	-webkit-box-shadow: 0px 4px 0px 0px #41413F;
+
+}
+/*/
+ *	[HEADER]
+/*/
+#header1 {
+	width : 1024px;
+	height : 130px;
+	margin : 0 auto 0 auto;
+	
+	color:#EDEDED;
+	font-size: 50px;
+}
+
+#headerTitle {
+	font-family: 'calibri';
+	font-weight: bold;
+	color:#EDEDED;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+#headerTitle a:link, #headerTitle a:visited,
+#headerTitle a:hover, #headerTitle a:active {
+	text-decoration: none;
+}
+
+
+/*/
+ *	[FOOTER]
+/*/
+#footer {
+	width : 100%;
+	height : 50px;	
+	margin : 0;
+
+	background: rgb(59,103,158); /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  rgba(59,103,158,1) 0%, rgba(43,136,217,1) 50%, rgba(43,136,217,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(59,103,158,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+	background: linear-gradient(135deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+	color: #DEDEDE;
+	
+	font-family: 'Roboto';
+	text-align: center;
+	background-attachment:fixed;
+}
+
+
+/*/
+ *	[DIVERS]
+/*/
+.tabulation {
+	margin-left: 3em;
+}
+
+.englobeur {
+	display: inline-block;
+	width:100%;
+	height:auto;
+	margin: 0 auto;
+}
+
+#cleanLink a:link {
+	color: inherit;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+/*/
+ *	[MISE EN PAGE]
+/*/
+
+#page {
+	margin-top:150px;
+	margin : 0 auto;
+	width : 100%;
+	height : auto;
+	background : #E5EFF1; /* COLOR 4 */
+	overflow : auto;
+	box-shadow: 0px 0px 10px 4px #25507A;
+	-moz-box-shadow: 0px 0px 10px 4px #25507A;
+	-webkit-box-shadow: 0px 0px 10px 4px #25507A;
+}
+
+#page2 {
+	margin : 0px auto;
+	width : 1024px;
+	height : auto;
+	background : #E5EFF1; /* COLOR 4 */
+	overflow : auto;
+	box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+	-moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+}
+
+
+/*/
+ *	[ACCUEIL]
+/*/
+#menugaucheACC {
+	float : left;
+	width : 20%;
+	padding : 8px;
+	margin : auto 5px auto 5px;
+	border : none;
+	background : none;
+}
+
+#menudroiteACC {
+	float : right;
+	width : 20%;
+	padding : 8px;
+	margin : auto 5px auto 5px;
+	border : none;
+	background : none;
+	overflow: hidden;
+}
+
+#corpsACC {
+	width : 504px;
+	height: 1016px;
+	padding : 5px;
+	background : none;
+	border : none;
+	margin : 40px auto;
+}
+
+.bobLeBricoleur {
+	width: auto;
+	height: 2px;
+	background-color: transparent;
+}
+
+#englobeurACC {
+	text-align: center;
+	float: left;
+	clear: none;
+	margin: 0px 4px 4px 4px;
+}
+
+.englobeurSquare1 {			/* Pour square FORUM&CHAT de type long */
+	height: 248px;
+	width: 504px;
+	overflow: hidden;
+
+	text-align: center;
+	float: left;
+	clear: none;
+	margin: 0px 0px 4px 0px;
+}
+.englobeurSquare1 img {
+	position: relative;
+	left: 0px;
+	transition: left .4s ease-in-out;
+}
+
+.englobeurSquare1 img:hover {
+	left: -504px;
+}
+
+.englobeurSquare2 {			/* Pour square ACTU de type large */
+	height: 504px;
+	width: 248px;
+	overflow: hidden;
+
+	text-align: center;
+	float: right;
+	clear: none;
+	margin: 4px 0px 2px 4px;
+}
+.englobeurSquare2 img {
+	position: relative;
+	top: 0px;
+	transition: top .4s ease-in-out;
+}
+.englobeurSquare2 img:hover {
+	top: -504px;
+}
+
+.englobeurSquare3 {			/* Pour ensemble squares CALENDRIER et PROJETS carrés */
+	height: 504px;
+	width: 248px;
+
+	text-align: center;
+	float: left;
+	clear: none;
+	margin: 4px 0px 2px 0px;
+}
+
+.englobeurSquare4 {			/* Pour ensemble squares CONTACT et FAQ carrés */
+	height: 248px;
+	width: 504px;
+
+	text-align: center;
+	float: left;
+	clear: none;
+
+	margin: 4px 0px 0px 0px;
+}
+
+.divImgNormale {
+	height: 248px;
+	width: 248px;
+	overflow: hidden;
+}
+.divImgNormale img {
+	position: relative;
+	top: 0px;
+	transition: top .4s ease-in-out;
+}
+.divImgNormale img:hover {
+	top: -248px;
+}
+
+
+/*/
+ * 	[P PROJET]
+/*/
+#englobeurPROJ {
+	text-align: center;
+	display: inline-block;
+}
+
+.h1PROJ, .h2PROJ, .h3PROJ {
+	font-family: 'Century Gothic', cursive;
+	font-weight: normal;
+	margin: 0 auto;
+
+	border: 3px solid #5C5C58;
+	background-color:#5C5C58; /* COLOR 5 */
+	color:white;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 4px 0px 0px #41413F;
+	-moz-box-shadow: 0px 4px 0px 0px #41413F;
+	-webkit-box-shadow: 0px 4px 0px 0px #41413F;
+}
+
+#titlePROJ {
+	width: 40%;
+	height: auto;
+	margin: 30px auto 34px auto;
+	text-align: center;
+}
+
+#menugauchePROJ {
+	background-image:url('http://image.noelshack.com/fichiers/2015/05/1422460500-bg2.png');
+	display: inline-block;
+	width : 30%;
+	margin :auto;
+	
+	padding : 0;
+	border: 2px solid #5C5C58;
+	vertical-align: top;
+	transition:all 0.3s ease-in-out;
+}
+
+#menugauchePROJ:hover {
+	box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+	-moz-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+}
+
+#menucentrePROJ {
+		background-image:url('http://image.noelshack.com/fichiers/2015/05/1422458509-bg2.png');
+		display: inline-block;
+		width : 30%;
+		padding : auto;
+		
+		border: 2px solid #5C5C58;
+		vertical-align: top;
+		transition:all 0.3s ease-in-out;
+
+	
+}
+	
+#menucentrePROJ:hover {
+	box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+	-moz-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+#menudroitePROJ {
+	background-image:url('http://image.noelshack.com/fichiers/2015/05/1422524842-bg2.png');
+	display: inline-block;
+	width : 30%;
+	padding : auto;
+	margin : auto;
+	
+	border: 2px solid #5C5C58;
+	vertical-align: top;
+	transition:all 0.3s ease-in-out;
+}
+	
+#menudroitePROJ:hover {
+	box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+	-moz-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow: inset 0px 0px 32px 100px rgba(255, 255, 255, 0.3);
+}
+
+
+#corpsPROJ {
+	border: 2px solid #5C5C58;
+	margin: auto;
+	margin-top: 10px;
+	background : white;
+}
+
+#listePROJ{	
+	border: 2px solid #5C5C58;
+	margin: auto;
+	margin-top: 10px;
+	background : white;
+	text-align: center;
+}
+
+.lienPROJ {
+	background-color:#FFF;
+	text-decoration: none;
+	color:#5C5C58;
+	width : 40%;
+	display: block;
+	margin: 10px auto;
+	border: 1px solid #5C5C58;
+	position:relative;
+	border-radius:5px;
+	text-align:center;
+	padding:15px 15px;
+	box-shadow: 0px 5px 0px #5C5C58;
+	transition:all 0.3s ease-in-out;
+}
+
+.lienPROJ:hover {
+	background-color: #5C5C58;
+	color:white;
+	border:solid 1px #444444;
+	box-shadow: 0px 5px 0px #444444;
+}
+
+.lienPROJ:active {
+	background-color: #444444;
+	color:white;
+	border:solid 1px #444444;
+	box-shadow: 0px 5px 0px #444444;
+}
+
+#listePROJ .lienPROJ {
+	display: inline-block;
+	width : 10%;
+}
+
+#calendrier {
+ 	width: 900px;
+ 	height: 700px;
+ }
+
+ #page2CAL {
+ 	margin : 0px auto;
+	width : 900px;	
+	height : auto;
+	background : #E5EFF1; /* COLOR 4 */
+	overflow : auto;
+	box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+	-moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+ }
+
+
+ /*/
+  *	[NO PAGE FOUND]
+ /*/
+ #corpsNPF {
+ 	width : 50%;
+	height: auto;
+	min-height: 420px;
+	padding : 5px;
+	background : none;
+	border : none;
+	margin : 40px auto;
+ }
+
+ #titleNPF {
+ 	text-align: center;
+ }
+
+/*/
+ *	[CALENDRIER]
+/*/
+.bRetour {
+	-moz-box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+	box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
+	background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
+	background-color:#7892c2;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:8px 20px;
+	text-decoration:none;
+}
+.bRetour:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
+	background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
+	background-color:#476e9e;
+}
+.bRetour:active {
+	position:relative;
+	top:1px;
+}
+
+.bRetourDiv {
+	margin: 0px 50% 20px 50%;
+}
+
+
+/* Test acctest.html */
+
+.squareForumDiv {			/* Pour square FORUM&CHAT de type long */
+	height: 248px;
+	width: 504px;
+	overflow: hidden;
+
+	background-color: #E83333;	
+
+	float: left;
+	clear: none;
+	margin: 0px 0px 4px 0px;
+}
+
+.squareForumText {
+	margin-top: 106px;
+	margin-bottom: 106px;
+	text-align: center;
+	font-family: "Intro";
+	font-size: 33px;
+	color: #161616;
+}
+
+
+/*
+#squareContainer1 {
+	height: 248px;
+	width: 504px;
+	overflow: hidden;
+}
+#squareContainer1 img {
+	position: relative;
+	left: 0px;
+	transition: left .4s ease-in-out;
+}
+#squareContainer1 img:hover {
+	left: -504px;
+}
+*/
