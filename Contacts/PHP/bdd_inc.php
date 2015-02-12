@@ -7,7 +7,7 @@
 	 * @since 20/01/2015
 	 */
 
-	include ("config.inc.php");
+	include_once ("config.inc.php");
 
 	/**
 	 * Charge la configuration d'accès à la base de données

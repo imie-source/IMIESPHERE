@@ -84,13 +84,23 @@ CREATE TABLE theme_forum(
         PRIMARY KEY (id_theme )
 )ENGINE=InnoDB;
 
+CREATE TABLE Contact(
+        id_contact int (11) Auto_increment  NOT NULL ,
+        nom        Varchar (50) NOT NULL,
+        mail       Varchar (50) NOT NULL,
+        tel        Varchar (20) NOT NULL,
+        objet      Varchar (50) NOT NULL,
+        msg        Longtext NOT NULL,
+        PRIMARY KEY (id_contact )
+)ENGINE=InnoDB;
 
 CREATE TABLE informations(
         id_info       int (11) Auto_increment  NOT NULL ,
         adresse_email Varchar (75) NOT NULL ,
-        telephone     Varchar (15) NOT NULL ,
+        telephone     Varchar (25) NOT NULL ,
         adresse_rue   Varchar (50) NOT NULL ,
-        adresse_codep Varchar (5) NOT NULL ,
+        adresse_campus Varchar (25) NOT NULL ,
+        adresse_build Varchar (25) NOT NULL ,
         adresse_ville Varchar (25) NOT NULL ,
         PRIMARY KEY (id_info )
 )ENGINE=InnoDB;

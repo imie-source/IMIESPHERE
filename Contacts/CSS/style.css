@@ -1,89 +1,291 @@
-body {
-	text-align: center;
-	background-color: black;
-	color: white;
-	}
+/*
+ *
+ *	CSS POUR LA PAGE CONTACT
+ *
+ */
 
-label {
-	font-family: Consolas;
-	padding-right: 70px;
+/* Style pour les label dans champs */
+.label {
+	font-family: 'Century Gothic', cursive;
+	padding-right: 15px;
+	color: black;
 }
 
-span {
-	font-family: Consolas;
-}
-
-.titre {
-	font-family: Consolas;
-	text-align: center;
-}
-
+/* Style pour le formulaire de contact */
 .form {
 	padding-right: 15px;
 	margin-top: 10px;
 	margin-left: 10px;
+	text-align: left;
 }
 
-.formulaire {
-	text-align: right;
+/* Style pour le div contenant le formulaire */
+.formulaires {
 	margin: auto;
 	margin-bottom: 50px;
-	width: 450px;
-	height: 320px;
-	border-style: solid;
-	border-color: #333;
-	border-radius: 25px;
+	margin-top: 8px;
+	margin-right: 175px;
+	width: 400px;
+	height: 480px;
 }
 
+/* Style pour les champs */
 .field {
-	font-family: Consolas;
 	margin-bottom: 7px;
-	border-radius: 5px;
-	border-style: solid;
-	border-color: #333;
+	margin-top: 5px;
 	text-indent: 2px;
+	width: 365px;
 }
 
+/* Style pour les boutons */
 .bouton {
 	margin-top: 8px;
-	font-family: Consolas;
 	width: 100px;
 	height: 25px;
-	border-radius: 5px;
 	border-style: solid;
-	background-color: #333;
-	border-color: #333;
+	border-radius: 4px;
+	background-color: #5C5C58;
+	border-color: #5C5C58;
 	color: white;
+	font-family: 'Century Gothic', cursive;
+	transition : all .3s ease-in-out;
 }
 
+.bouton:hover {
+	border-style: solid;
+	border-color: #6D6D6D;
+	background-color: #6D6D6D;
+}
+
+/* Style spécial pour la zone de saisie du message */
 #text {
-	margin-left: 222px;
+	outline: none;
+	resize: none;
 }
 
-#nom {
-	padding-right: 150px;
+/* Style spécial pour le champ d'objet */
+#objet {
+	width: 365px;
 }
 
-#msg {
-	font-family: Consolas;
-	padding-right: 300px;
-	margin-top: 20px;
-}
-
+/* Style pour la Google Map */
 #map {
 	width: 600px;
 	height: 450px;
-	border-style: ridge;
 }
 
-#email {
-	padding-right: 150px;
+/* Style pour la div contenant la map et la div contenant la Google Map */
+#cmap, #formulaire {
+	display: inline-block;
 }
 
-#sex {
-	padding-right: 140px;
+/* Style pour la div contenant les informations de l'association */
+#info {
+	font-family: 'Century Gothic', cursive;
+	padding-left: 15px;
+	text-align: left;
 }
 
-/*#me {
-	color: black;
-}*/
+/* Style pour la div contenant le formulaire et la map */
+#all {
+	text-align: center;
+}
+
+li {
+	width: 100px;
+	border-style: solid;
+	border-color: #5C5C58;
+	border-radius: 4px;
+	display: inline-block;
+	color: white;
+	background-color: #5C5C58;
+	font-family: 'Century Gothic', cursive;
+	transition : all .3s ease-in-out;
+}
+
+li:hover {
+	border-style: solid;
+	border-color: #6D6D6D;
+	background-color: #6D6D6D;
+}
+
+/* FIN DU CSS POUR LA PAGE CONTACT */
+
+/*
+ *
+ *	CSS POUR LA PAGE DE BASE DU SITE
+ *
+ */
+
+ /* 
+ *+--------------------------------------------------------------+
+ *| • STYLES CSS POUR IMIESPHERE (PROJET WEB)                    |
+ *+--------------------------------------------------------------+
+ */
+
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+@font-face {font-family: 'Intro';	src: url('fonts/Intro.otf');}
+@font-face {font-family: Liquid Crystal; src: url('../fonts/LiquidCrystal-Normal.otf');}
+
+/*- Style pour le body (Gradient background, Police générale) -*/
+body {
+	margin : 0;
+	background: rgb(59,103,158); /* Old browsers */
+	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%, rgba(43,136,217,1) 50%, rgba(43,136,217,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+	background: gradient(linear, left top, right bottom, color-stop(0%,rgba(59,103,158,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+	background: linear-gradient(135deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	font-family: 'Roboto';
+	color:black;
+	background-attachment:fixed;
+}
+
+/*-Style pour les titres (Police, cadre, couleurs...)-*/
+h1, h2, h3 {
+	font-family: 'Century Gothic', cursive;
+	font-weight: normal;
+	border: 3px solid #5C5C58;
+	background-color:#5C5C58; /* COLOR 5 */
+	color:white;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 4px 0px 0px #41413F;
+	box-shadow: 0px 4px 0px 0px #41413F;
+	box-shadow: 0px 4px 0px 0px #41413F;
+}
+
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•*/
+/*		[HEADER]											*/
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•*/
+
+/*- Style pour le conteneur du header -*/
+#header1 {
+	width : 1024px;
+	height : 130px;
+	margin : 0 auto 0 auto;
+	color:#EDEDED;
+	font-size: 45px;
+}
+
+/*- Style pour le titre du header -*/
+#headerTitle {
+	font-family: 'Century Gothic', cursive;
+	font-weight: bold;
+	color:#EDEDED;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+/*- Style permettant de formater la forme lien du titre -*/
+#headerTitle a:link, #headerTitle a:visited,
+#headerTitle a:hover, #headerTitle a:active {
+	text-decoration: none;
+}
+
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•*/
+/*		[FOOTER]											*/
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•*/
+#footer {
+	width : 100%;
+	height : 50px;	
+	margin : 0;
+	background: rgb(59,103,158); /* Old browsers */
+	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%, rgba(43,136,217,1) 50%, rgba(43,136,217,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+	background: gradient(linear, left top, right bottom, color-stop(0%,rgba(59,103,158,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+	background: linear-gradient(-45deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+	background: linear-gradient(135deg,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	color: #DEDEDE;
+	font-family: 'Roboto';
+	text-align: center;
+	background-attachment:fixed;
+	margin-top: 35px;
+}
+
+
+
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•*/
+/*		[DIVERS]											*/
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•*/
+
+/*- Style permettant de faire une tabulation avant le texte -*/
+.tabulation {
+	margin-left: 2em;
+}
+
+/*- Style pour englober plusieurs divs/contents -*/
+.englobeur {
+	display: inline-block;
+	width:100%;
+	height:auto;
+	margin: 0 auto;
+}
+
+/*- Style formatant les liens généraux (2) -*/
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
+/*		[MISE EN PAGE]												*/
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
+
+/*- Page globale (all sauf header et footer) -*/
+#page {
+	text-align: center;
+	margin-top:150px;
+	margin : 0 auto;
+	width : 100%;
+	height : auto;
+	background : #E5EFF1; /* COLOR 4 */
+	overflow : auto;
+	box-shadow: 0px 0px 10px 4px #25507A;
+	box-shadow: 0px 0px 10px 4px #25507A;
+	box-shadow: 0px 0px 10px 4px #25507A;
+}
+
+/*- Sous page comprenant basiquement le corps -*/
+#page2 {
+	margin : 0px auto;
+	width : 1024px;
+	min-height: 850px;
+	height : auto;
+	background : #E5EFF1; /* COLOR 4 */
+	overflow : auto;
+	box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.90);
+	box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+	box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+}
+
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
+/*		[CONTACT]												*/
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
+
+/*- Partie gauche du corps -*/
+#menugaucheACC {
+	float : left;
+	width : 20%;
+	padding : 8px;
+	margin : auto 5px auto 5px;
+	border : none;
+	background : none;
+}
+
+/*- Partie droite du corps -*/
+#menudroiteACC {
+	float : right;
+	width : 20%;
+	padding : 8px;
+	margin : auto 5px auto 5px;
+	border : none;
+	background : none;
+	overflow: hidden;
+}
+
+
+/* • • • • • • • • • • • • • • • F I N • • • • • • • • • • • • • • • */
