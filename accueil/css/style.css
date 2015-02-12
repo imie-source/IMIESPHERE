@@ -215,7 +215,7 @@ a:hover, a:visited, a:link, a:active
 	margin : 0 auto;
 	width : 100%;
 	height : auto;
-	background : #E5EFF1; /* COLOR 4 */
+	background : #D3DCDE; /* COLOR 4 */
 	overflow : auto;
 	box-shadow: 0px 0px 10px 4px #25507A;
 	-moz-box-shadow: 0px 0px 10px 4px #25507A;
@@ -256,6 +256,47 @@ a:hover, a:visited, a:link, a:active
 	box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
 	-moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
 	-webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+}
+
+/*- Boutons de retour présents sur plusieurs pages -*/
+.bRetour {
+	-moz-box-shadow:inset 0px 1px 0px 0px #6785c2;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #6785c2;
+	box-shadow:inset 0px 1px 0px 0px #6785c2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5079d1), color-stop(1, #3c6bc9));
+	background:-moz-linear-gradient(top, #5079d1 5%, #3c6bc9 100%);
+	background:-webkit-linear-gradient(top, #5079d1 5%, #3c6bc9 100%);
+	background:-o-linear-gradient(top, #5079d1 5%, #3c6bc9 100%);
+	background:-ms-linear-gradient(top, #5079d1 5%, #3c6bc9 100%);
+	background:linear-gradient(to bottom, #5079d1 5%, #3c6bc9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5079d1', endColorstr='#3c6bc9',GradientType=0);
+	background-color:#5079d1;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #314179;
+	display:inline-block;
+	cursor:pointer;
+	color:#f2f2f2;
+	font-family:Verdana;
+	font-size:14px;
+	font-weight:bold;
+	padding:10px 36px;
+	text-decoration:none;
+}
+.bRetour:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3c6bc9), color-stop(1, #5079d1));
+	background:-moz-linear-gradient(top, #3c6bc9 5%, #5079d1 100%);
+	background:-webkit-linear-gradient(top, #3c6bc9 5%, #5079d1 100%);
+	background:-o-linear-gradient(top, #3c6bc9 5%, #5079d1 100%);
+	background:-ms-linear-gradient(top, #3c6bc9 5%, #5079d1 100%);
+	background:linear-gradient(to bottom, #3c6bc9 5%, #5079d1 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c6bc9', endColorstr='#5079d1',GradientType=0);
+	background-color:#3c6bc9;
+}
+.bRetour:active {
+	position:relative;
+	top:1px;
 }
 
 
@@ -564,6 +605,116 @@ box-shadow: 0px 5px 0px #444444;
 	vertical-align: top;
 	
 }
+
+
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
+/*		[PAGE CONTACT]											*/
+/* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
+/* Style pour les label dans champs */
+.label {
+	font-family: 'Century Gothic', cursive;
+	padding-right: 15px;
+	color: black;
+}
+
+/* Style pour le formulaire de contact */
+.form {
+	padding-right: 15px;
+	margin-top: 10px;
+	margin-left: 10px;
+	text-align: left;
+}
+
+/* Style pour le div contenant le formulaire */
+.formulaires {
+	margin: auto;
+	margin-bottom: 50px;
+	margin-top: 8px;
+	margin-right: 175px;
+	width: 400px;
+	height: 480px;
+}
+
+/* Style pour les champs */
+.field {
+	margin-bottom: 7px;
+	margin-top: 5px;
+	text-indent: 2px;
+	width: 365px;
+}
+
+/* Style pour les boutons */
+.bouton {
+	margin-top: 8px;
+	width: 100px;
+	height: 25px;
+	border-style: solid;
+	border-radius: 4px;
+	background-color: #5C5C58;
+	border-color: #5C5C58;
+	color: white;
+	font-family: 'Century Gothic', cursive;
+	transition : all .3s ease-in-out;
+}
+
+.bouton:hover {
+	border-style: solid;
+	border-color: #6D6D6D;
+	background-color: #6D6D6D;
+}
+
+/* Style spécial pour la zone de saisie du message */
+#text {
+	outline: none;
+	resize: none;
+}
+
+/* Style spécial pour le champ d'objet */
+#objet {
+	width: 365px;
+}
+
+/* Style pour la Google Map */
+#map {
+	width: 600px;
+	height: 450px;
+}
+
+/* Style pour la div contenant la map et la div contenant la Google Map */
+#cmap, #formulaire {
+	display: inline-block;
+}
+
+/* Style pour la div contenant les informations de l'association */
+#info {
+	font-family: 'Century Gothic', cursive;
+	padding-left: 15px;
+	text-align: left;
+}
+
+/* Style pour la div contenant le formulaire et la map */
+#all {
+	text-align: center;
+}
+
+li {
+	width: 100px;
+	border-style: solid;
+	border-color: #5C5C58;
+	border-radius: 4px;
+	display: inline-block;
+	color: white;
+	background-color: #5C5C58;
+	font-family: 'Century Gothic', cursive;
+	transition : all .3s ease-in-out;
+}
+
+li:hover {
+	border-style: solid;
+	border-color: #6D6D6D;
+	background-color: #6D6D6D;
+}}
+
 
 /* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
 /*		[PAGE NOT FOUND]										*/

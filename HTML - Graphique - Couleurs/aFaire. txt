@@ -1,0 +1,15 @@
+- Tester notre css sur les pages de TOUT le monde, si ça passe pas si c'est pa cohérent
+  on modifiera un peu les pages pour que ça fonctionne.
+  BUT: uniformiser toutes les pages
+
+  Accueil:		OK
+  Calendrier:	OK
+  Projets:		?
+  Forum:		?
+  Actu:			?
+  Contact:		? cool
+  FAQ:			?
+
+- Faire un seul et unique contrôleur pour le site
+
+- 
