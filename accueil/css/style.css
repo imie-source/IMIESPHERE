@@ -4,9 +4,16 @@
  *+--------------------------------------------------------------+
  */
 
-@font-face {font-family: 'Roboto'; src: url('../fonts/roboto/Roboto-Light.ttf');}
-@font-face {font-family: 'Intro';	src: url('../fonts/intro/Intro.otf');}
-@font-face {font-family: 'Liquid Crystal'; src: url('../fonts/liquid_crystal/LiquidCrystal-Normal.otf');}
+@font-face {
+	font-family: "Roboto";
+	src: url('../fonts/roboto/Roboto-Light.ttf');
+
+	font-family: "Intro";
+	src: url('../fonts/intro/Intro.otf');
+
+	font-family: "Liquid Crystal";
+	src: url('../fonts/liquid_crystal/LiquidCrystal-Normal.otf');
+}
 
 /*- Style pour le body (Gradient background, Police générale) -*/
 body {
@@ -341,7 +348,8 @@ a:hover, a:visited, a:link, a:active
 	width: 504px;
 	overflow: hidden;
 
-	background-color: #E83333;	
+	background-color: #E83333;
+	font-family: "Intro", "Jokerman";	
 
 	float: left;
 	clear: none;
@@ -351,7 +359,7 @@ a:hover, a:visited, a:link, a:active
 	margin-top: 106px;
 	margin-bottom: 106px;
 	text-align: center;
-	font-family: "Intro", Calibri;
+	font-family: "Intro", "Jokerman";
 	font-size: 33px;
 	color: #161616;
 }
@@ -591,7 +599,7 @@ box-shadow: 0px 5px 0px #444444;
 	margin-top :20px;
 	padding : auto;
 	border: 2px solid #5C5C58;
-	vertical-align: top;;
+	vertical-align: top;
 }
 
 
