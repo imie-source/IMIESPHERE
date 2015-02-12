@@ -38,7 +38,7 @@
 		if ($dbLink instanceof PDO) {
 
 			// On définit le modèle de la requête
-			$sql = "SELECT mail_imie, tel_imie, adresse1_imie, adresse2_imie, adresse3_imie, adresse4_imie FROM info;";
+			$sql = "SELECT adresse_email, telephone, adresse_rue, adresse_campus, adresse_build, adresse_ville FROM informations;";
 			
 			// On prépare la requête
 			$req = $dbLink -> prepare($sql);
@@ -50,12 +50,12 @@
 			if ($data = $req -> fetch(PDO::FETCH_ASSOC)) {
 				
 				// On définit les variables de session
-				$_SESSION['mail'] = $data["mail_imie"];
-				$_SESSION['tel'] = $data["tel_imie"];
-				$_SESSION['rue'] = $data["adresse1_imie"];
-				$_SESSION['campus'] = $data["adresse2_imie"];
-				$_SESSION['build'] = $data["adresse3_imie"];
-				$_SESSION['post'] = $data ["adresse4_imie"];
+				$_SESSION['mail'] = $data["adresse_email"];
+				$_SESSION['tel'] = $data["telephone"];
+				$_SESSION['rue'] = $data["adresse_rue"];
+				$_SESSION['campus'] = $data["adresse_campus"];
+				$_SESSION['build'] = $data["adresse_build"];
+				$_SESSION['post'] = $data ["adresse_ville"];
 			}
 		}
 
