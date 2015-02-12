@@ -4,9 +4,9 @@
  *+--------------------------------------------------------------+
  */
 
-@import url('http://fonts.googleapis.com/css?family=Roboto');
-@font-face {font-family: 'Intro';	src: url('fonts/Intro.otf');}
-@font-face {font-family: Liquid Crystal; src: url('../fonts/LiquidCrystal-Normal.otf');}
+@font-face {font-family: 'Roboto'; src: url('../fonts/roboto/Roboto-Light.ttf');}
+@font-face {font-family: 'Intro';	src: url('../fonts/intro/Intro.otf');}
+@font-face {font-family: 'Liquid Crystal'; src: url('../fonts/liquid_crystal/LiquidCrystal-Normal.otf');}
 
 /*- Style pour le body (Gradient background, Police générale) -*/
 body {
@@ -44,7 +44,7 @@ body {
 
 /*-Style pour les titres (Police, cadre, couleurs...)-*/
 h1, h2, h3 {
-	font-family: 'Century Gothic', cursive;
+	font-family: 'Century Gothic', Tahoma, sans-serif;
 	font-weight: normal;
 
 	border: 3px solid #5C5C58;
@@ -158,51 +158,55 @@ a:hover, a:visited, a:link, a:active
 }
 
 /*- Style pour le bouton retour des pages [x4] -*/
-.bRetour {
-	-moz-box-shadow:inset 0px 1px 0px 0px #9fb4f2;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #9fb4f2;
-	box-shadow:inset 0px 1px 0px 0px #9fb4f2;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
-	background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-	background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-	background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-	background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
-	background-color:#7892c2;
-	border:1px solid #4e6096;
+.bNav {
+	-moz-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+	box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4c87c7), color-stop(1, #346aa3));
+	background:-moz-linear-gradient(top, #4c87c7 5%, #346aa3 100%);
+	background:-webkit-linear-gradient(top, #4c87c7 5%, #346aa3 100%);
+	background:-o-linear-gradient(top, #4c87c7 5%, #346aa3 100%);
+	background:-ms-linear-gradient(top, #4c87c7 5%, #346aa3 100%);
+	background:linear-gradient(to bottom, #4c87c7 5%, #346aa3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c87c7', endColorstr='#346aa3',GradientType=0);
+	background-color:#4c87c7;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #314179;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:arial;
-	font-size:13px;
+	font-family:Verdana;
+	font-size:15px;
 	font-weight:bold;
-	padding:8px 20px;
+	padding:8px 49px;
 	text-decoration:none;
 }
-.bRetour:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
-	background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
-	background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
-	background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
-	background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
-	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
-	background-color:#476e9e;
+.bNav:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #346aa3), color-stop(1, #4c87c7));
+	background:-moz-linear-gradient(top, #346aa3 5%, #4c87c7 100%);
+	background:-webkit-linear-gradient(top, #346aa3 5%, #4c87c7 100%);
+	background:-o-linear-gradient(top, #346aa3 5%, #4c87c7 100%);
+	background:-ms-linear-gradient(top, #346aa3 5%, #4c87c7 100%);
+	background:linear-gradient(to bottom, #346aa3 5%, #4c87c7 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#346aa3', endColorstr='#4c87c7',GradientType=0);
+	background-color:#346aa3;
 }
-.bRetour:active {
+.bNav:active {
 	position:relative;
 	top:1px;
 }
 
-.bRetourDiv {
+.bNavDiv {
 	margin: 20px 45% 20px 45%;
+	color: #FFF;
 }
 
 
 
 /* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
-/*		[MISE EN PAGE]												*/
+/*		[MISE EN PAGE]											*/
 /* •-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•-•	*/
 
 /*- Page globale (all sauf header et footer) -*/
@@ -291,7 +295,7 @@ a:hover, a:visited, a:link, a:active
 }
 
 /*- Style pour le square FORUM et son texte [x2] -*/
-#sq1 {
+#sq0 {
 	height: 248px;
 	width: 504px;
 	overflow: hidden;
@@ -302,17 +306,17 @@ a:hover, a:visited, a:link, a:active
 	clear: none;
 	margin: 0px 0px 4px 0px;
 }
-#sq1Text {
+#sq0Text {
 	margin-top: 106px;
 	margin-bottom: 106px;
 	text-align: center;
-	font-family: "Intro";
+	font-family: "Intro", Calibri;
 	font-size: 33px;
 	color: #161616;
 }
 
 /*- Style pour le square ACTU et son texte [x2] -*/
-#sq2 {
+#sq1 {
 	height: 504px;
 	width: 248px;
 	overflow: hidden;
@@ -323,7 +327,7 @@ a:hover, a:visited, a:link, a:active
 	clear: none;
 	margin: 4px 0px 4px 0px;
 }
-#sq2Text {
+#sq1Text {
 	margin-top: 232px;
 	margin-bottom: 232px;
 	text-align: center;
@@ -333,12 +337,33 @@ a:hover, a:visited, a:link, a:active
 }
 
 /*- Style pour le square CALENDRIER et son texte [x2] -*/
-#sq3 {
+#sq2 {
 	height: 248px;
 	width: 248px;
 	overflow: hidden;
 
 	background-color: #E1DC43;	
+
+	float: left;
+	clear: none;
+	margin: 4px 0px 4px 0px;
+}
+#sq2Text {
+	margin-top: 106px;
+	margin-bottom: 106px;
+	text-align: center;
+	font-family: "Intro";
+	font-size: 33px;
+	color: #161616;
+}
+
+/*- Style pour le square PROJETS et son texte [x2] -*/
+#sq3 {
+	height: 248px;
+	width: 248px;
+	overflow: hidden;
+
+	background-color: #9778D6;	
 
 	float: left;
 	clear: none;
@@ -353,13 +378,13 @@ a:hover, a:visited, a:link, a:active
 	color: #161616;
 }
 
-/*- Style pour le square PROJETS et son texte [x2] -*/
+/*- Style pour le square CONTACT et son texte [x2] -*/
 #sq4 {
 	height: 248px;
 	width: 248px;
 	overflow: hidden;
 
-	background-color: #9778D6;	
+	background-color: #5CE5DD;	
 
 	float: left;
 	clear: none;
@@ -374,29 +399,8 @@ a:hover, a:visited, a:link, a:active
 	color: #161616;
 }
 
-/*- Style pour le square CONTACT et son texte [x2] -*/
-#sq5 {
-	height: 248px;
-	width: 248px;
-	overflow: hidden;
-
-	background-color: #5CE5DD;	
-
-	float: left;
-	clear: none;
-	margin: 4px 0px 4px 0px;
-}
-#sq5Text {
-	margin-top: 106px;
-	margin-bottom: 106px;
-	text-align: center;
-	font-family: "Intro";
-	font-size: 33px;
-	color: #161616;
-}
-
 /*- Style pour le square FAQ et son texte [x2] -*/
-#sq6 {
+#sq5 {
 	height: 248px;
 	width: 248px;
 	overflow: hidden;
@@ -407,7 +411,7 @@ a:hover, a:visited, a:link, a:active
 	clear: none;
 	margin: 4px 0px 4px 0px;
 }
-#sq6Text {
+#sq5Text {
 	margin-top: 106px;
 	margin-bottom: 106px;
 	text-align: center;
