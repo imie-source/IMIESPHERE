@@ -2,20 +2,24 @@
 
 	/**
 	 * Fonctions qui permettent d'envoyer un mail à l'association
-	 * Avec confirmation de l'envoie du mail
+	 * Avec confirmation de l'envoi du mail
+	 * Ou renvoi d'une page d'erreur
 	 *
 	 * @author Thibaud Carié
 	 * @since 05/01/2015
 	 */
 
 	// On démarre une session pour l'utilisation des variables de sessions
-	session_start();
+	// session_start();
 
 	// Définition des constantes
 	define('ENVOI_OK', 1);
 	define('ENVOI_KO', 2);	
 
+	// On inclus les fonctions de connexion et de chargement de la BDD
 	require_once ("bdd_inc.php");
+
+	// On inclus les class de PHPMailer qui nous sont utiles
 	include_once (__DIR__ . "/../../lib/PHPMailer/class.phpmailer.php");
 	require_once (__DIR__ . "/../../lib/PHPMailer/class.smtp.php");
 
@@ -30,16 +34,22 @@
 		// Connexion à la base de données
 		$dbLink = cnxBDD($dbConf);
 
+		// Si $dbLink est une instance de PDO
 		if ($dbLink instanceof PDO) {
 
+			// On définit le modèle de la requête
 			$sql = "SELECT mail_imie, tel_imie, adresse1_imie, adresse2_imie, adresse3_imie, adresse4_imie FROM info;";
-		
+			
+			// On prépare la requête
 			$req = $dbLink -> prepare($sql);
 
+			// On l'exécute
 			$req -> execute();
 
+			// Si on trouve quelque chose en BDD
 			if ($data = $req -> fetch(PDO::FETCH_ASSOC)) {
 				
+				// On définit les variables de session
 				$_SESSION['mail'] = $data["mail_imie"];
 				$_SESSION['tel'] = $data["tel_imie"];
 				$_SESSION['rue'] = $data["adresse1_imie"];
@@ -49,10 +59,39 @@
 			}
 		}
 
+		// Sinon
 		else {
 
+			// On renvoi le message d'erreur
 			echo "Message d'erreur : " . $dbLink;
 		}
+	}
+
+	/**
+	 * Affiche la page HTML indiquant le résultat de l'authentification
+	 *
+	 * @param $msgfail Message à afficher
+	 * @param $res Cela c'est-il bien passé ou non ?
+	 */
+	function afficheRes($msgfail, $res) {
+		
+		global $self;
+
+		// Si cela c'est bien passé
+		if ($res) {
+			$idRes = "thx";
+			$retour = $self . "?cle=contact";
+		}
+
+		// Sinon
+		else {
+
+			$idRes = "err";
+			$retour = $self . "?cle=contact";
+		}
+
+		include (__DIR__ . "/../HTML/envoi.html");
+		die();
 	}
 
 	/**
@@ -120,15 +159,15 @@
 			// On définit le message au format HTML
 			$mail->MsgHTML($message);
 
-			// On envoie le message et on check s'il y a eu des erreurs
+			// On envoi le message et on check s'il y a eu des erreurs
 			if (!$mail->Send()) {
 
-				// Si l'envoie du mail se passe mal on retourne l'erreur
+				/*// Si l'envoi du mail se passe mal on retourne l'erreur
 				echo "Erreur pendant l'envoie du message : " . $mail->ErrorInfo;
-				die();
+				die();*/
 
-				// Si l'envoie du mail se passe mal on retourne la constante d'erreur
-				//return ENVOI_KO;
+				// Si l'envoi du mail se passe mal on retourne la constante d'erreur
+				return ENVOI_KO;
 			}
 
 			else {
@@ -138,14 +177,14 @@
 			}
 		}
 
-		// On "attrape les erreurs de la class PHPMailer"
+		// On "attrape" les erreurs de la class PHPMailer
 		catch (phpmailerException $pme) {
 
 			// On affiche l'erreur
 			echo $pme -> errorMessage();
 		}
 
-		// On "attrape toutes autres erreurs possibles"
+		// On "attrape" toutes autres erreurs possibles
 		catch (Exception $e) {
 
 			// On affiche l'erreur
@@ -157,7 +196,7 @@
 	 * Fonction qui check si le mail est valide
 	 *
 	 * @param $email La mail à vérifier
-	 * @return Vrai le mail est correct, faux si le mail n'est pas correct
+	 * @return Vrai si le mail est correct, faux si le mail n'est pas correct
 	 */
 	function check_mail($email){
 
@@ -217,23 +256,23 @@
 	// Si il y a eu soummission de formulaire
 	if (isset($_POST["send"])) {
 
+		// Si le mail est correct
 		if (check_mail($_POST["emailaddress"])) {
 
+			// Si aucun des champs n'est vide
 			if (!empty($_POST["msg"]) && !empty($_POST["nom"]) && !empty($_POST["emailaddress"]) && !empty($_POST["objet"]) && !empty($_POST["tel"])) {
 
 				// On stocke les infos relatives au mail en base de données
 				$res = envoieMessage($_POST["nom"], $_POST["tel"], $_POST["emailaddress"], $_POST["objet"], $_POST["msg"]);
 
+				// On stocke les infos du formualaire dans des variables
 				$nom = $_POST["nom"];
-
 				$mail = $_POST["emailaddress"];
-
 				$tel = $_POST["tel"];
-
 				$objet = $_POST["objet"];
-
 				$msg = $_POST["msg"];
 
+				// On met en forme le message en HTML
 				$msgHTML = "<html><head><meta charset = 'utf-8'/></head><body><p>" . $msg . "<br/><br/><br/><br/>" . $nom . "<br/>" . $mail . "<br/>" . $tel . "<br/></p></body></html>";
 
 				// On fait appelle à la fonction d'envoie du mail
@@ -242,27 +281,28 @@
 				switch ($send) {
 
 					case ENVOI_OK:
-						include_once (__DIR__ . "/../HTML/envoie_ok.html");
+						afficheRes("Votre message à bien été envoyé", true);
 						break;
 
 					case ENVOI_KO:
-						include_once (__DIR__ . "/../HTML/envoie_ko.html");
+						afficheRes("Une erreur est apparue pendant l'envoi de votre message", false);
 						break;
-					default:
-						include_once (__DIR__ . "/../HTML/envoie_ko.html");
-						die();
 				}
 			}
 
+			// Sinon
 			else {
-				echo "L'un des champs est vide";
-				die();
+
+				// On renvoi la page d'erreur
+				afficheRes("L'un des champs est vide", false);
 			}
 		}
 
+		// Sinon
 		else {
 
-			include_once (__DIR__ . "/../HTML/envoie_ko.html");
+			// On renvoi la page d'erreur
+			afficheRes("L'adresse mail n'est pas correcte", false);
 		}
 	}
 

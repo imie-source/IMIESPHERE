@@ -32,3 +32,5 @@ INSERT INTO categorie_forum (libelle_categorie, date_categorie, id_theme, id_uti
 															('Protocoles Reseaux', now(), 2, 1),
 															('Soirees', now(), 3, 1),
 															('Forum Bin', now(), 3, 1);
+
+INSERT INTO info VALUES (default, "imiesphere@gmail.com", "02 23 44 69 00", "Rue Pierre de Maupertuis", "Campus de Ker Lann", "Immeuble Alliance", "35170 Bruz");

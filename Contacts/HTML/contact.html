@@ -17,6 +17,16 @@
 			</div>
 		</div>
 		<div id="page">
+			<nav>
+				<ul>
+					<li><a href="">Accueil</a></li>
+					<li><a href="">Blog</a></li>
+					<li><a href="">Membres</a></li>
+					<li><a href="">Calendrier</a></li>
+					<li><a href="">Forum</a></li>
+					<li><a href="">F.A.Q</a></li>
+				</ul>
+			</nav>
 			<div id="page2">    
 				<div class="englobeur">
 					<div id="menugaucheACC">
@@ -35,31 +45,14 @@
 							<br/>
 							<?= $_SESSION['mail'] ?></p>
 						</div>
-						<h3>CONNEXION</h3>
-						<form class="formulaire" method="POST" action ="<?= $self ?>">
-							<input type="hidden" value="Connection" name='Connection' autocomplete="off">
-							<p><input type="text" placeholder="Pseudo" name="pseudo" autocomplete="off"></p>
-							<p><input type="password" placeholder="Mot De Passe" name="mdp" autocomplete="off"></p>
-							<input type="submit" value="Valider" name="valider" title="Se connecter au tchat !" class="bouton">
-						</form>
 					</div>
-					<div id="menudroiteACC">
-						<h3>INSCRIPTION</h3>
-						<form class="formulaire1" method="POST" action="<?= $self ?>">
-							<p><input type="email" placeholder="E-mail" name="email" autocomplete="on"></p>
-							<p><input type="text" placeholder="Pseudo" name="pseudo" autocomplete="on"></p>
-							<p><input type="password" placeholder="Mot De Passe" name="mdp" autocomplete="on"></p>
-							<p><input type="password" placeholder="Confirmation" name="mdp1" autocomplete="on"></p>
-							<input type="submit" value="Valider" name="valider" title="Se connecter au tchat !" class="bouton">
-						</form>
-					</div> 
 					<div id="all">
 						<div class="formulaires" id="formulaire">
 							<h3 class="titre">CONTACTEZ-NOUS</h3>
 							<form class="form" method="POST" action="../PHP/contact.php">
 								<label id="nom" class="label">Votre nom :</label>
 								<br/>
-								<input type="text" class="field" id="user" name="nom" autocomplete="off" placeholder="Exemple : Jean Michel"/>
+								<input type="text" class="field" id="user" name="nom" autocomplete="off" placeholder="Exemple : Prénom Nom"/>
 								<br />
 								<label id="email" class="label">Votre e-mail :</label>
 								<br/>
